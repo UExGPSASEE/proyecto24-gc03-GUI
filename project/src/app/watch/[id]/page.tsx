@@ -1,6 +1,7 @@
 // app/video/[id]/page.tsx
 import React from 'react';
 import './watch.css';
+import '../../error.css';
 
 interface ApiResponse {
 	id: number;
@@ -53,6 +54,22 @@ export default async function VideoPage(props: { params: Promise<{ id: string }>
     if (!content) {
 		return <div>No video data available</div>; // Handle empty data
 	}
+
+	// Check the tipo attribute for valid values
+	if (content.tipo === "Serie" || content.tipo === "Temporada") {
+		return (
+			<div className="error-page">
+				<h1>Error: Tipo de contenido no válido</h1>
+				<div>
+					<span>No se puede visualizar un contenido de tipo "{content.tipo}".
+					Por favor, accede a </span>
+					<a href={`http://localhost:3000/preview/${params.id}`}>esta página</a>
+					<span> para ver los detalles del contenido.</span>
+				</div>
+			</div>
+		); // Render error message for invalid types
+	}
+
 	let minutes = -1;
 	if (content.duracion !== null) {
 		minutes = content.duracion / 60;

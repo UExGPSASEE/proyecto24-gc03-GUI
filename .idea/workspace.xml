@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="485644da-2a46-4088-b9b8-64414a3d1611" name="Changes" comment="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido." />
+    <list default="true" id="485644da-2a46-4088-b9b8-64414a3d1611" name="Changes" comment="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido.">
+      <change afterPath="$PROJECT_DIR$/project/src/app/error.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/app/preview/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/app/preview/[id]/preview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/watch/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/watch/[id]/page.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -39,6 +45,9 @@
     &quot;accountId&quot;: &quot;52490eab-d12c-45ba-9ac9-5ca9ec1e9add&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -52,7 +61,7 @@
     "JavaScript Debug.localhost:3000.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "SCRUM-42-HU-12.-Interfaz-de-usuario",
-    "last_opened_file_path": "C:/Users/rvazm/Desktop/Universidad/ASEE/Proyecto/proyecto24-gc03-gui/project/src/app/watch",
+    "last_opened_file_path": "C:/Users/rvazm/Desktop/Universidad/ASEE/Proyecto/proyecto24-gc03-gui/project/src/app/preview/[id]",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -66,6 +75,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui\project\src\app\preview\[id]" />
       <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui\project\src\app\watch" />
       <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui" />
     </key>
@@ -113,7 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1730541529260</updated>
       <workItem from="1730541530329" duration="631000" />
-      <workItem from="1730542242776" duration="7626000" />
+      <workItem from="1730542242776" duration="10960000" />
     </task>
     <task id="LOCAL-00001" summary="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido.">
       <option name="closed" value="true" />
@@ -123,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730559923249</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido.">
+      <option name="closed" value="true" />
+      <created>1730560566552</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730560566552</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
