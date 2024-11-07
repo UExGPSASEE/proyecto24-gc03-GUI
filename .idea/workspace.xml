@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="485644da-2a46-4088-b9b8-64414a3d1611" name="Changes" comment="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido.">
-      <change afterPath="$PROJECT_DIR$/project/src/app/error.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/src/app/preview/[id]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project/src/app/preview/[id]/preview.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/app/watch/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/watch/[id]/page.tsx" afterDir="false" />
+    <list default="true" id="152032b0-b2b5-43b6-bc69-079e0d7ae14f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/fonts/GeistMonoVF.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/fonts/GeistVF.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/login/LogoStreamHub.png" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/login/LogoStreamHub.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/login/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/signup/LogoStreamHub.png" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/signup/LogoStreamHub.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/signup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/signup/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/signup/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/signup/signup.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +26,14 @@
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/develop" />
+    <option name="OPTIONS">
+      <set>
+        <option value="NO_FF" />
+      </set>
     </option>
   </component>
   <component name="Git.Settings">
@@ -41,8 +53,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/UExGPSASEE/proyecto24-gc03-GUI.git&quot;,
-    &quot;accountId&quot;: &quot;52490eab-d12c-45ba-9ac9-5ca9ec1e9add&quot;
+    &quot;url&quot;: &quot;https://github.com/UExGPSASEE/proyecto24-gc03-GUI&quot;,
+    &quot;accountId&quot;: &quot;00718e4e-019c-4584-b6c5-fd6ce01e7ebc&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -52,27 +64,28 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2oHzwn8SmPLPdGNbxvvPDMcDRFZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript Debug.localhost:3000.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "SCRUM-42-HU-12.-Interfaz-de-usuario",
-    "last_opened_file_path": "C:/Users/rvazm/Desktop/Universidad/ASEE/Proyecto/proyecto24-gc03-gui/project/src/app/preview/[id]",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.GUI.executor": "Run",
-    "ts.external.directory.path": "C:\\Users\\rvazm\\Desktop\\Universidad\\ASEE\\Proyecto\\proyecto24-gc03-gui\\project\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:3000.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;SCRUM-42-HU-12.-Interfaz-de-usuario&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rvazm/Desktop/Universidad/ASEE/Proyecto/proyecto24-gc03-gui/project/src/app/preview/[id]&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.GUI.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\HP 840 G2\\Desktop\\Universidad\\4CURSO\\ASEE\\Proyecto\\proyecto24-gc03-GUI\\project\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui\project\src\app\preview\[id]" />
@@ -80,6 +93,7 @@
       <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP 840 G2\Desktop\Universidad\4CURSO\ASEE\Proyecto\proyecto24-gc03-GUI\project\src\app\streamhub" />
       <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui\project\src\app\watch\[id]" />
     </key>
   </component>
