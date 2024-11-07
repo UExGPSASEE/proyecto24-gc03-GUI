@@ -48,7 +48,7 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
 				<div>
 					<span>No se pueden ver detalles de un contenido de tipo "{content.tipo}".
 					Por favor, accede a </span>
-					<a href={`http://localhost:3000/watch/${params.id}`}>esta página</a>
+					<a href={`http://localhost:3000/streamhub/watch/${params.id}`}>esta página</a>
 					<span> para visualizar el contenido.</span>
 				</div>
 			</div>

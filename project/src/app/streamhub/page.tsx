@@ -15,7 +15,6 @@ function HomePage() {
               <div className="content-section">
                   <div className="content-item">
                       <h2>Empieza a disfrutar del contenido de StreamHub hoy</h2>
-                      {/* Aquí puedes mapear una lista de videos */}
                   </div>
               </div>
               <div className="cta-section">
