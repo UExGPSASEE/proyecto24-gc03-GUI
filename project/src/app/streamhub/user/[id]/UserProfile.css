@@ -1,0 +1,145 @@
+/*+++++++++++++++++++++++++++++++++*/
+/*Apartado del perfil con sus datos*/
+/*+++++++++++++++++++++++++++++++++*/
+.gridcontainer {
+    display: grid;
+    grid-template-columns: 300px 1fr 130px;
+    min-width: 870px;
+    padding: 30px;
+    margin: 50px;
+    min-width: 630px;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    background-color: #222222;
+    border-radius: 20px;
+}
+
+/*Imagen del usuario*/
+.fotoPerfil {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    height: fit-content;
+    border-right: 1px solid #ffffff;
+}
+
+.foto{
+    width: 255px;
+    height: 255px;
+    border-radius: 25px;
+}
+
+/*Datos del perfil: nombre, apellidos y correo*/
+.datosPerfil {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin: 40px;
+    height: fit-content;
+    font-size: xx-large;
+    color: #ffffff;
+}
+
+/*Botones para editar y borrar el perfil*/
+.botonesEdicion {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    margin: 0 40px;
+    height: fit-content;
+    font-size: 70px;
+    justify-items: left;
+}
+
+.botonesEdicion svg{
+    margin: 15px;
+}
+
+
+/*Botones "Propiedades", "Lista de deseos" y "Mis Reservas"*/
+/*Alineamiento de los botones "Propiedades", "Lista de deseos" y "Mis Reservas"*/
+/*
+.gridBotones{
+    padding: 40px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+/*Aspecto de los botones "Propiedades", "Lista de deseos" y "Mis Reservas"*/
+/*
+.boton_Apartados {
+    width: 300px;
+    height: 70px;
+    cursor: pointer;
+    outline: none;
+    font-size: 25px;
+    color: #ffffff;
+    background: var(--blue7);
+    border: 0;
+    border-radius: 25px;
+}
+
+.boton_Apartados:hover {
+    color: var(--blue5);
+    background: #ffffff;
+    border: 1px solid var(--blue7);
+    transition: 0.5s;
+}
+*/
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*Cambio de la disposición de elementos en la pantalla*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+@media screen and (max-width: 800px) {
+    /*Barra de navegación responsive*/
+    .NavLinks li a {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /*Elementos de las secciones responsive*/
+    #socialLinks {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #header {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        justify-items: center;
+    }
+    .Flag {
+        margin-right: 0;
+    }
+    .Profile {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    /*Barra de navegación responsive*/
+    .gridcontainer {
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: auto auto;
+        min-width: 850px;
+    }
+    .fotoPerfil {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+    }
+    .datosPerfil {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    .botonesEdicion {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+    }
+}
