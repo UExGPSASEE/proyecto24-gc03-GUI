@@ -1,6 +1,6 @@
 import React from 'react';
-import './login.css'; // Import the CSS file for styling
-import Logo from "./LogoStreamHub.png";
+import '../../../../public/css/login.css'; // Import the CSS file for styling
+import Logo from "../../../../public/images/LogoStreamHub.png";
 
 
 function LoginPage() {

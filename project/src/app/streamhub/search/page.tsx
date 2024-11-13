@@ -1,6 +1,6 @@
 // app/search/page.tsx
 import React from 'react';
-import './search.css';
+import '../../../../public/css/search.css';
 
 export default function SearchPage() {
 	return (

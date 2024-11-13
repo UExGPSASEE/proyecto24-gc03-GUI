@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import './InsertContent.css'; // Importa el archivo CSS
-import Logo from "./LogoStreamHub.png";
+import '../../../../public/css/InsertContent.css'; // Importa el archivo CSS
+import Logo from "../../../../public/images/LogoStreamHub.png";
 
 function InsertContent() {
     // Definir los estados para cada campo del formulario

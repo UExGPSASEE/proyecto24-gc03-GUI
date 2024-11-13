@@ -1,7 +1,7 @@
 // app/video/[id]/page.tsx
 import React from 'react';
-import './watch.css';
-import '../../error.css';
+import '../../../../../public/css/watch.css';
+import '../../../../../public/css/error.css';
 
 interface ApiResponse {
 	id: number;

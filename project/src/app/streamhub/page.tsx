@@ -1,4 +1,4 @@
-import './HomePage.css'; // Import the CSS file for styling
+import '../../../public/css/HomePage.css'; // Import the CSS file for styling
 import Logo from "../../../public/images/LogoStreamHub.png";
 import React from 'react';
 import Footer from './Footer.js'; // Import the Footer component

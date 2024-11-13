@@ -1,7 +1,7 @@
 // app/content/[id]/page.tsx
 import React from 'react';
-import './preview.css';
-import '../../error.css';
+import '../../../../../public/css/preview.css';
+import '../../../../../public/css/error.css';
 
 interface ApiResponse {
 	id: number;
