@@ -38,12 +38,42 @@
 /* Video details */
 .video-details {
     padding: 10px 0;
+    position: relative;
 }
 
 .video-details h1 {
     font-size: 1.8rem;
     color: #ffffff;
     margin-bottom: 10px;
+}
+
+.like-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    color: lightslategrey; /* Default color */
+    margin-left: 8px;
+}
+
+.like-button.liked {
+    color: red; /* Color when liked */
+}
+
+.like-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.num-likes {
+    font-size: 1.2rem;
+    color: #e0e0e0;
 }
 
 .description {
