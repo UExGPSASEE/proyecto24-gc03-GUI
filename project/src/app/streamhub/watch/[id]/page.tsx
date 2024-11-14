@@ -2,6 +2,7 @@ import React from 'react';
 import './watch.css';
 import '../../error.css';
 import AddToListButton from "./AddToListButton";
+import LikeButton from './LikeButton';
 
 interface ApiResponse {
 	id: number;
@@ -63,6 +64,8 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
 						Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
 					{/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
 					<AddToListButton contentId={content.id} userId={1} />
+					{/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
+					<LikeButton contentId={content.id} userId={3} />
 				</div>
 			</div>
 			<div className="suggested-videos">
