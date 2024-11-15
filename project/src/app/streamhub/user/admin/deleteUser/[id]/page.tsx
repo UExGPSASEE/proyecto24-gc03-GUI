@@ -37,7 +37,7 @@ async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {
 // Main function component for the content presentation page
 export default async function ContentPage(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
-    const apiUrl = `http://localhost:8080/StreamHub/admin/${params.id}`;
+    const apiUrl = `http://localhost:8082/StreamHub/admin/${params.id}`;
     const content = await fetchContent(apiUrl);
 
     if (!content) {
