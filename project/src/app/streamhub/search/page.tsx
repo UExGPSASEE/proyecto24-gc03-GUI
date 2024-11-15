@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import './search.css';
+import '../../../../public/css/search.css';
 import TagList, {Etiqueta} from './TagList';
 import Footer from '../Footer.js'; // Import the Footer component
 

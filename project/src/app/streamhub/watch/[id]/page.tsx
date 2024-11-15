@@ -65,9 +65,9 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
                         <p className="metadata">{minutes > -1 && (<span>{minutes} minutos • </span>)}
                             Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
                         {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-                        <AddToListButton contentId={content.id} userId={1} />
+                        <AddToListButton contentId={content.id} userId={1}/>
                         {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-                        <LikeButton contentId={content.id} userId={3} />
+                        <LikeButton contentId={content.id} userId={3}/>
                     </div>
                 </div>
                 <div className="suggested-videos">
@@ -80,9 +80,9 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
                     </ul>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </div>
-	);
+    );
 };
 
 async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {

@@ -1,7 +1,7 @@
 "use client";
 
 import React, {useState, useEffect} from 'react';
-import './watch.css';
+import '../../../../../public/css/watch.css';
 
 interface LikeButtonProps {
     contentId: number;

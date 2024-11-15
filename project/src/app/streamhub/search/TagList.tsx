@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import './search.css';
+import '../../../../public/css/search.css';
 
 export interface Etiqueta {
 	nombre: string;

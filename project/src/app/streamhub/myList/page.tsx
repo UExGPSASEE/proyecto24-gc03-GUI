@@ -1,6 +1,6 @@
 // app/list/page.tsx
 import React from 'react';
-import './myList.css';
+import '../../../../public/css/myList.css';
 import DeleteFromListButton from "./DeleteFromListButton"
 
 // Interfaz para la respuesta de cada contenido

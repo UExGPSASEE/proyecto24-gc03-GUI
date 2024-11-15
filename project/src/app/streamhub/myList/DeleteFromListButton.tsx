@@ -28,7 +28,7 @@ async function DeleteFromList(contentId: number, userId: number): Promise<void> 
 'use client';
 
 import React from 'react';
-import './myList.css';
+import '../../../../public/css/myList.css';
 
 interface DeleteFromListButtonProps {
 	contentId: number;
