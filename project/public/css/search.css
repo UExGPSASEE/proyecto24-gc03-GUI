@@ -72,6 +72,7 @@ body {
     border-radius: 10px;
     padding: 5px 10px;
     margin-right: 10px;
+    margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s; /* Smooth transition on hover */
 }
@@ -79,6 +80,14 @@ body {
 .tag:hover {
     background-color: #555; /* Slightly lighter gray on hover */
 }
+
+/* components/tagSelector.css */
+
+.tag.selected {
+    background-color: #0078d7; /* Cambia a un color para indicar selección */
+    color: white;
+}
+
 
 /* Filter options styles */
 .filter-section {
@@ -114,3 +123,25 @@ body {
 .result-item:hover {
     background-color: #333; /* Darker background on hover */
 }
+
+.result-item a {
+    display: inline-block;       /* Permite aplicar padding y otras propiedades como si fuera un botón */
+    padding: 10px 20px;          /* Espaciado interno como en un botón */
+    background: linear-gradient(135deg, #4a90e2, #9013fe);   /* Fondo azul */
+    color: white;                /* Texto blanco */
+    border-radius: 5px;          /* Bordes redondeados */
+    text-decoration: none;       /* Elimina el subrayado predeterminado */
+    font-weight: bold;           /* Resalta el texto */
+    text-align: center;          /* Asegura que el texto esté centrado */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+.result-item a:hover {
+    transform: scale(1.05);      /* Le da un pequeño efecto de "agrandado" */
+}
+
+.result-item a:active {
+    transform: scale(0.98);      /* Efecto cuando se hace clic (pequeño encogimiento) */
+}
+
+
