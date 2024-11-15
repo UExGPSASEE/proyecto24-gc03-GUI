@@ -1,8 +1,73 @@
-// app/search/page.tsx
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import './search.css';
+import TagList, {Etiqueta} from './TagList';
+
+interface Content {
+	id: number;
+	tipo: string;
+	titulo: string;
+	production_year: number;
+	clasificacion_edad: string;
+	descripcion: string;
+	pertenece_a: number | null;
+	numero_elementos: number | null;
+	duracion: number | null;
+	url: string;
+	etiqueta_ids: number[];
+}
 
 export default function SearchPage() {
+	const [searchText, setSearchText] = useState<string>('');
+	const [results, setResults] = useState<Content[]>([]);
+	const [selectedTags, setSelectedTags] = useState<string[]>([]);
+	let searchUrl: string = "http://localhost:8081/StreamHub/contenidos";
+
+	// Función para manejar selección y deselección de etiquetas
+	const handleTagClick = (tagName: string) => {
+		setSelectedTags((prevTags) =>
+			prevTags.includes(tagName)
+				? prevTags.filter((tag) => tag !== tagName) // Elimina si ya está seleccionada
+				: [...prevTags, tagName] // Añade si no está seleccionada
+		);
+	};
+
+	const handleEtiquetasLoaded = (etiquetas: Etiqueta[]) => {
+		const selectedEtiquetas = etiquetas.filter((etiqueta) => selectedTags.includes(etiqueta.nombre));
+
+		// Si hay etiquetas seleccionadas, actualizamos la searchUrl con los parámetros correspondientes
+		if (selectedEtiquetas.length > 0) {
+			const etiquetasIds = selectedEtiquetas.map((etiqueta) => etiqueta.id_etiqueta);
+			const etiquetasQuery = etiquetasIds.map((id) => `etiquetas=${id}`).join('&');
+			searchUrl = `http://localhost:8081/StreamHub/contenidos/etiquetas?${etiquetasQuery}`;
+		} else {
+			// Si no hay etiquetas seleccionadas, mantenemos la URL original
+			searchUrl = "http://localhost:8081/StreamHub/contenidos";
+		}
+	};
+
+
+	const handleSearch = async () => {
+		try {
+			const response = await fetch(searchUrl);
+			if (!response.ok) {
+				throw new Error("Error fetching data");
+			}
+			let filteredResults: Content[] = [];
+			if (response.status === 200) {
+				const data: Content[] = await response.json();
+				// Filtrar el array para obtener solo los contenidos cuyo título contenga el texto de búsqueda
+				filteredResults = data.filter((content) =>
+					content.titulo.toLowerCase().includes(searchText.toLowerCase())
+				);
+			}
+			setResults(filteredResults);
+		} catch (error) {
+			console.error("Error fetching or filtering contents:", error);
+		}
+	};
+
 	return (
 		<div className="search-page">
 			<h1>Busca algo que ver hoy</h1>
@@ -13,42 +78,45 @@ export default function SearchPage() {
 					type="text"
 					placeholder="Escribe aquí el título..."
 					className="search-input"
+					value={searchText}
+					onChange={(e) => setSearchText(e.target.value)} // Actualizar el texto de búsqueda
 				/>
-				<button className="search-button">Buscar</button>
+				<button className="search-button" onClick={handleSearch}>Buscar</button>
 			</div>
 
-			{/* Tag Selection */}
-			<div className="tag-selection">
-				<h2>Añade etiquetas</h2>
-				<div className="tag-options">
-					<span className="tag">Acción</span>
-					<span className="tag">Comedia</span>
-					<span className="tag">Drama</span>
-					<span className="tag">Terror</span>
-					<span className="tag">Ciencia ficción</span>
-				</div>
-			</div>
+			<TagList
+				selectedTags={selectedTags}
+				onTagClick={handleTagClick}
+				onEtiquetasLoaded={handleEtiquetasLoaded}
+			/>
 
-			{/* Filter Options */}
-			<div className="filter-section">
-				<h2>Filter Results</h2>
-				<select className="filter-dropdown">
-					<option value="a-z">A-Z</option>
-					<option value="z-a">Z-A</option>
-					<option value="date-asc">Más antiguos primero</option>
-					<option value="date-desc">Más recientes primero</option>
-				</select>
-			</div>
-
-			{/* Results Section (Placeholder) */}
 			<div className="results-section">
-				<h2>Resultados de búsqueda</h2>
-				<ul className="results-list">
-					<li className="result-item">Result Item 1</li>
-					<li className="result-item">Result Item 2</li>
-					<li className="result-item">Result Item 3</li>
-				</ul>
+				<h2>Resultados de búsqueda ({results.length})</h2>
+				{results.length === 0 ? (
+					<p>Cambia tus términos de búsqueda y haz clic en "Buscar"</p>
+				) : (
+					<ul className="results-list">
+						{results.map((content) => {
+							// Determinar URL de enlace según el tipo de contenido
+							const linkUrl = content.tipo === "Serie" || content.tipo === "Temporada"
+								? `http://localhost:3000/streamhub/preview/${content.id}`
+								: `http://localhost:3000/streamhub/watch/${content.id}`;
+
+							return (
+								<li key={content.id} className="result-item">
+									<a href={linkUrl} rel="noopener noreferrer">
+										<h3>{content.titulo}</h3>
+									</a>
+									<p>{content.descripcion}</p>
+									<p><strong>Año:</strong> {content.production_year}</p>
+									<p><strong>Clasificación de edad:</strong> {content.clasificacion_edad}</p>
+								</li>
+							);
+						})}
+					</ul>
+				)}
 			</div>
+
 		</div>
 	);
 }
