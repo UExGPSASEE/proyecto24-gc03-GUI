@@ -1,0 +1,116 @@
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
+}
+
+/* General styling for the search page */
+.search-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 3em auto auto;
+    margin-bottom: 70px;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark background for dark mode */
+    color: #f8f8f8; /* Light text color */
+    border-radius: 20px; /* Rounded corners for the container */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Search bar styles */
+.search-bar {
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #444; /* Dark border for the input */
+    border-radius: 10px; /* Rounded corners for the input */
+    background-color: #2c2c2c; /* Darker input background */
+    color: #f8f8f8; /* Light text color */
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0078d7; /* color background for button */
+    border: none; /* Remove default border */
+    color: white; /* White text for the button */
+    border-radius: 50px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.search-button:hover {
+    background-color: #005bb5; /* Darker color on hover */
+}
+
+/* Tag selection styles */
+.tag-selection {
+    margin-bottom: 20px;
+}
+
+.tag-options {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #444; /* Dark gray background for tags */
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.tag:hover {
+    background-color: #555; /* Slightly lighter gray on hover */
+}
+
+/* Filter options styles */
+.filter-section {
+    margin-bottom: 20px;
+}
+
+.filter-dropdown {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #444; /* Dark border for dropdown */
+    border-radius: 10px; /* Rounded corners for dropdown */
+    background-color: #2c2c2c; /* Darker background for dropdown */
+    color: #f8f8f8; /* Light text color */
+}
+
+/* Results section styles */
+.results-section {
+    margin-top: 20px;
+}
+
+.results-list {
+    list-style: none;
+    padding: 0;
+}
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #444; /* Divider between results */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.result-item:hover {
+    background-color: #333; /* Darker background on hover */
+}

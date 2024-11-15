@@ -1,0 +1,37 @@
+/* content.css */
+
+/* Styling for the error page */
+.error-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    background-color: #2c2c2c; /* Dark background */
+    color: #ff4d4d; /* Light red text for dark mode */
+    padding: 20px;
+}
+
+/* Heading style for the error message */
+.error-page h1 {
+    font-size: 2rem; /* Large heading size */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Paragraph style for error details */
+.error-page span {
+    font-size: 1.2rem; /* Slightly larger text */
+}
+
+/* Link styling */
+.error-page a {
+    color: #ffcc00; /* Bright yellow for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text for emphasis */
+}
+
+.error-page a:hover {
+    text-decoration: underline; /* Underline on hover for clarity */
+    color: #ffc107; /* Slightly darker yellow on hover */
+}
