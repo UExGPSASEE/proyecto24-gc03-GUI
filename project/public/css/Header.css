@@ -1,0 +1,139 @@
+/*Aspecto general de la página web*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/*+++++++++++++++++++*/
+/*Barra de navegación*/
+/*+++++++++++++++++++*/
+
+/*Aspecto de la barra de navegación de la página*/
+#header{
+    width: 100%;
+    padding: 10px 10%;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    background: #0a0a0a;
+}
+
+/*Aspecto del logo de la empresa*/
+.TBWlogo{
+    width: 180px;
+    border-radius: 10%;
+    border: 1px solid #ffffff;
+}
+
+/*Aspecto del nombre comercial de la empresa*/
+.TextLogo{
+    margin-left: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/*Aspecto del menú de selección de idioma*/
+.Flag{
+    width: 60px;
+    margin-right: 60px;
+    /*Permite activar el cursor al pasar sobre el elemento*/
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+/*Aspecto del icono de perfil*/
+.Profile{
+    width: 60px;
+    margin-left: 30px;
+    /*Permite activar el cursor al pasar sobre el elemento*/
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+#Profile{
+    border: 2px solid #ffffff;
+}
+
+/*Aspecto del botón de iniciar sesión*/
+.iniciarSesion {
+    margin-left: 30px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    /*Permite activar el cursor al pasar sobre el elemento*/
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+/*Aspecto de la lista de la barra de navegación*/
+.NavLinks{
+    width: 100%;
+    text-align: center;
+}
+
+/*Aspecto de los elementos de la cabecera que se encuentren definidos en la lista*/
+.NavLinks li{
+    font-size: x-large;
+    margin: 10px 20px;
+    display: inline-block;
+    list-style: none;
+}
+
+/*Aspecto de los elementos de la cabecera que permiten la navegación a otras páginas*/
+.NavLinks li a{
+    padding: 10px 25px;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 50px;
+    /*Realiza una animación de fundido al pasar el cursor sobre el elemento*/
+    transition: 0.2s;
+}
+
+/*Aspecto de los elementos de la cabecera cuando se coloque el cursor sobre él*/
+.NavLinks li a:hover {
+    color: #121212;
+    background: #ffffff;
+}
+
+/*Aspecto de los elementos de la cabecera cuando se encuentren activos*/
+.NavLinks li a.active{
+    color: #121212;
+    background: #ffffff;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*Cambio de la disposición de elementos en la pantalla*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+@media screen and (max-width: 800px) {
+    /*Barra de navegación responsive*/
+    .NavLinks li a {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /*Elementos de las secciones responsive*/
+    #socialLinks {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #header {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        justify-items: center;
+    }
+    .Flag {
+        margin-right: 0;
+    }
+    .Profile {
+        margin-left: 0;
+    }
+    #footerHeader{
+        display: grid;
+        grid-template-columns : 1fr;
+    }
+}

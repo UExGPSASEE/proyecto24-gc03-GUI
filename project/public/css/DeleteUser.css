@@ -1,7 +1,13 @@
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: linear-gradient(to bottom right, #121212, #1e1e1e);
     color: #e0e0e0;
-    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
 }
 
 /*++++++++++++++++++++++++++++++++++++*/
@@ -76,8 +82,8 @@ body {
     font-size: 18px;
     outline: none;
     color: #ffffff;
-    background: #121212;
-    border-radius: 25px;
+    background: #e53935;
+    border-radius: 50px;
 }
 
 #boton_borrar:hover {

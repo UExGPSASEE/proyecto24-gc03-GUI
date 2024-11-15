@@ -2,8 +2,11 @@
 import React from 'react';
 import '../../../../../../../public/css/DeleteUser.css';
 import '../../../../../../../public/css/error.css';
+import '../../../../../../../public/css/Header.css';
 import Footer from '../../../../Footer.js';
 import ProfileImage from "../../../../../../../public/images/default.png";
+import Logo from "../../../../../../../public/images/LogoStreamHub.png";
+import Bandera from "../../../../../../../public/images/bandera_españa.png";
 
 interface ApiResponse {
     id: number;
@@ -43,6 +46,33 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
 
     return (
         <div className="content-page">
+            <nav id="header">
+                {/* Logo de la empresa */}
+                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                {/* Nombre comercial de la empresa*/}
+                <div className="TextLogo">StreamHub</div>
+                <ul className="NavLinks">
+                    <li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
+                    <li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+                </ul>
+                {/* Menú de idioma*/}
+                <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
+                {/* Iniciar sesión */}
+                <div className="iniciarSesion">
+                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/client/${params.id}`}>
+                        <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 448 512">
+                            <path
+                                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                                style={{fill: "white"}}
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div className="miCuenta">
+                    <a href={`http://localhost:3000/streamhub/user/client/${params.id}`}>Mi Cuenta</a>
+                </div>
+            </nav>
             {/* Contenido del perfil principal */}
             <div className="borrar">
                 {/* Formulario que muestra los atributos del usuario antes de eliminar su cuenta */}

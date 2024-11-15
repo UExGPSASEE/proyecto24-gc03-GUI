@@ -2,6 +2,7 @@
 import React from 'react';
 import '../../../../../public/css/watch.css';
 import '../../../../../public/css/error.css';
+import Footer from '../../Footer.js'
 
 interface ApiResponse {
 	id: number;
@@ -76,29 +77,32 @@ export default async function VideoPage(props: { params: Promise<{ id: string }>
 	}
 
     return (
-		<div className="video-page">
-			<div className="video-container">
-				<div>
-					{YouTubeEmbed(content.url)} {/* Use the URL from the fetched data */}
+		<div>
+			<div className="video-page">
+				<div className="video-container">
+					<div>
+						{YouTubeEmbed(content.url)} {/* Use the URL from the fetched data */}
+					</div>
+					<div className="video-details">
+						<h1>{content.titulo}</h1> {/* Use the title from the fetched data */}
+						<p className="description">
+							{content.descripcion} {/* Use the description from the fetched data */}
+						</p>
+						<p className="metadata">{minutes > -1 && (<span>{minutes} minutos • </span>)}
+							Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
+					</div>
 				</div>
-				<div className="video-details">
-					<h1>{content.titulo}</h1> {/* Use the title from the fetched data */}
-					<p className="description">
-						{content.descripcion} {/* Use the description from the fetched data */}
-					</p>
-					<p className="metadata">{minutes > -1 && (<span>{minutes} minutos • </span>)}
-						Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
+				<div className="suggested-videos">
+					<h2>También te podría gustar</h2>
+					<ul>
+						<li>Suggested video 1</li>
+						<li>Suggested video 2</li>
+						<li>Suggested video 3</li>
+						<li>Suggested video 4</li>
+					</ul>
 				</div>
 			</div>
-			<div className="suggested-videos">
-				<h2>También te podría gustar</h2>
-				<ul>
-					<li>Suggested video 1</li>
-					<li>Suggested video 2</li>
-					<li>Suggested video 3</li>
-					<li>Suggested video 4</li>
-				</ul>
-			</div>
+			<Footer />
 		</div>
 	);
 }

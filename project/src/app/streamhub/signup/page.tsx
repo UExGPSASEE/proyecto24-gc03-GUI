@@ -2,8 +2,9 @@
 
 import React, {useState} from 'react';
 import { useRouter } from 'next/navigation'
-import '../../../../public/css/signup.css'; // Import the CSS file for styling
+import '../../../../public/css/form.css'; // Import the CSS file for styling
 import Logo from "../../../../public/images/LogoStreamHub.png";
+import Footer from '../Footer.js';
 
 function SignInPage() {
     // Definir los estados para cada campo del formulario
@@ -78,66 +79,69 @@ function SignInPage() {
     };
 
     return (
-        <div className="login-container">
-            <h1>StreamHub</h1>
-            <div id={"logo"}>
-                <img src={Logo.src} alt={"Logo"}></img>
+        <div className="main">
+            <div className="login-container">
+                <h1>StreamHub</h1>
+                <div id={"logo"}>
+                    <img src={Logo.src} alt={"Logo"}></img>
+                </div>
+                <p>Regístrate</p>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required
+                               value={nombre} onChange={(e) => setNombre(e.target.value)}/>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" value={apellidos} required
+                               onChange={(e) => setApellidos(e.target.value)}/>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="fechaDeNacimiento">Fecha de Nacimiento</label>
+                        <input type="date" id="fechaDeNacimiento" name="fechaDeNacimiento" value={fecha_de_nacimiento}
+                               required onChange={(e) => setFechaDeNacimiento(e.target.value)}/>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" name="email" value={email} required
+                               onChange={(e) => setEmail(e.target.value)}/>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" name="password" value={password} required
+                               onChange={(e) => setPassword(e.target.value)}/>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="numeroTarjetaDeCredito">Número de Tarjeta de Crédito</label>
+                        <input type="text" id="numeroTarjetaDeCredito" name="numeroTarjetaDeCredito"
+                               value={numero_tarjeta_de_credito}
+                               required onChange={(e) => setNumeroTarjetaDeCredito(e.target.value)}/>
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="ccv">CCV</label>
+                        <input type="text" id="ccv" name="ccv" maxLength={3} value={ccv} required
+                               onChange={(e) => setCcv(e.target.value)}/>
+                    </div>
+
+                    <button type="submit" className="login-button" onClick={handleClick}>Registrarse</button>
+                </form>
+                <br></br>
+                <a href="./login" className="signup-link">¿Ya tienes cuenta? Inicia sesión</a>
+                {/* Notificación push-up */}
+                {message && (
+                    <div className={`notification ${message.type}`}>
+                        {message.text}
+                    </div>
+                )}
             </div>
-            <p>Regístrate</p>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" required
-                           value={nombre} onChange={(e) => setNombre(e.target.value)}/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="apellidos">Apellidos</label>
-                    <input type="text" id="apellidos" name="apellidos" value={apellidos} required
-                           onChange={(e) => setApellidos(e.target.value)}/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="fechaDeNacimiento">Fecha de Nacimiento</label>
-                    <input type="date" id="fechaDeNacimiento" name="fechaDeNacimiento" value={fecha_de_nacimiento}
-                           required onChange={(e) => setFechaDeNacimiento(e.target.value)}/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" value={email} required
-                           onChange={(e) => setEmail(e.target.value)}/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" value={password} required
-                           onChange={(e) => setPassword(e.target.value)}/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="numeroTarjetaDeCredito">Número de Tarjeta de Crédito</label>
-                    <input type="text" id="numeroTarjetaDeCredito" name="numeroTarjetaDeCredito"
-                           value={numero_tarjeta_de_credito}
-                           required onChange={(e) => setNumeroTarjetaDeCredito(e.target.value)}/>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="ccv">CCV</label>
-                    <input type="text" id="ccv" name="ccv" maxLength={3} value={ccv} required
-                           onChange={(e) => setCcv(e.target.value)}/>
-                </div>
-
-                <button type="submit" className="login-button" onClick={handleClick}>Registrarse</button>
-            </form>
-            <br></br>
-            <a href="/login" className="signup-link">¿Ya tienes cuenta? Inicia sesión</a>
-            {/* Notificación push-up */}
-            {message && (
-                <div className={`notification ${message.type}`}>
-                    {message.text}
-                </div>
-            )}
+            <Footer />
         </div>
     );
 }
