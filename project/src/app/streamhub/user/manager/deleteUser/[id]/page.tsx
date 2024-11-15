@@ -1,6 +1,6 @@
 // app/content/[id]/page.tsx
 import React from 'react';
-import '../../../../../../../public/css/DeleteUser.css';
+import '../../../../../../../public/css/DeleteForm.css';
 import '../../../../../../../public/css/error.css';
 import '../../../../../../../public/css/Header.css';
 import Footer from '../../../../Footer.js';

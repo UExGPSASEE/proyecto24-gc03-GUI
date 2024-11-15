@@ -1,22 +1,23 @@
 // app/content/[id]/page.tsx
 import React from 'react';
-import '../../../../../../../public/css/DeleteForm.css';
-import '../../../../../../../public/css/error.css';
-import '../../../../../../../public/css/Header.css';
-import Footer from '../../../../Footer.js';
-import ProfileImage from "../../../../../../../public/images/default.png";
-import Logo from "../../../../../../../public/images/LogoStreamHub.png";
-import Bandera from "../../../../../../../public/images/bandera_españa.png";
+import '../../../../../../public/css/DeleteForm.css';
+import '../../../../../../public/css/error.css';
+import '../../../../../../public/css/Header.css';
+import Footer from '../../../Footer.js';
+import Logo from "../../../../../../public/images/LogoStreamHub.png";
+import Bandera from "../../../../../../public/images/bandera_españa.png";
 
 interface ApiResponse {
     id: number;
-    nombre: string;
-    apellidos: string;
-    fechaDeNacimiento: string;
-    email: string;
-    password: string;
-    numeroTarjetaDeCredito: string | null;
-    ccv: string | null;
+    tipo: string;
+    titulo: string;
+    production_year: number;
+    clasificacion_edad: string;
+    descripcion: string;
+    pertenece_a: number;
+    numero_elementos: number;
+    duracion: number | null;
+    url: string;
 }
 
 // Function to fetch content by ID
@@ -37,7 +38,7 @@ async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {
 // Main function component for the content presentation page
 export default async function ContentPage(props: { params: Promise<{ id: string }> }) {
     const params = await props.params;
-    const apiUrl = `http://localhost:8080/StreamHub/admin/${params.id}`;
+    const apiUrl = `http://localhost:8080/StreamHub/contenidos/${params.id}`;
     const content = await fetchContent(apiUrl);
 
     if (!content) {
@@ -59,7 +60,7 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
                 <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
                 {/* Iniciar sesión */}
                 <div className="iniciarSesion">
-                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/admin/${params.id}`}>
+                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/login`}>
                         <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 448 512">
                             <path
@@ -70,7 +71,7 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
                     </a>
                 </div>
                 <div className="miCuenta">
-                    <a href={`http://localhost:3000/streamhub/user/admin/${params.id}`}>Mi Cuenta</a>
+                    <a href={`http://localhost:3000/streamhub/login`}>Mi Cuenta</a>
                 </div>
             </nav>
             {/* Contenido del perfil principal */}
@@ -78,21 +79,17 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
                 {/* Formulario que muestra los atributos del usuario antes de eliminar su cuenta */}
                 <form name="form">
                     <div className="borrarDatos">
-                        <h1>¿Desea borrar su perfil?</h1>
-                    </div>
-                    {/* Imagen del elemento a borrar */}
-                    <div className="fotoElemento">
-                        <img src={ProfileImage.src} className="fotoPerfil" alt="Icono de perfil de usuario"/>
+                        <h1>¿Desea borrar este contenido?</h1>
                     </div>
                     {/* Valores de los atributos a borrar */}
                     <ul className="datosElemento">
-                        <li><b>Nombre:</b> {content.nombre}</li>
-                        <li><b>Apellidos:</b> {content.apellidos}</li>
-                        <li><b>Email:</b> {content.email}</li>
+                        <li><b>Titulo:</b> {content.titulo}</li>
+                        <li><b>Tipo:</b> {content.tipo}</li>
+                        <li><b>Año:</b> {content.production_year}</li>
                     </ul>
                     {/* Botón para eliminar los datos deseados */}
                     <div className="boton_borrar">
-                        <button type="submit" id="boton_borrar">Eliminar perfil</button>
+                        <button type="submit" id="boton_borrar">Eliminar contenido</button>
                     </div>
                 </form>
             </div>
