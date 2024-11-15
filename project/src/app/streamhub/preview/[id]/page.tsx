@@ -1,7 +1,8 @@
 // app/content/[id]/page.tsx
 import React from 'react';
-import './preview.css';
-import '../../error.css';
+import '../../../../../public/css/preview.css';
+import '../../../../../public/css/error.css';
+import Footer from '../../Footer.js'
 
 interface ApiResponse {
 	id: number;
@@ -59,30 +60,33 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
 	const minutes = content.duracion !== null ? Math.floor(content.duracion / 60) : -1;
 
 	return (
-		<div className="content-page">
-			{/* Title Section */}
-			<h1>{content.titulo}</h1>
+		<div>
+			<div className="content-page">
+				{/* Title Section */}
+				<h1>{content.titulo}</h1>
 
-			{/* Attributes */}
-			<p><strong>Año:</strong> {content.production_year}</p>
-			<p><strong>Clasificación de edad:</strong> {content.clasificacion_edad}</p>
-			<p><strong>Descripción:</strong> {content.descripcion}</p>
-			<p>
-				<strong>
-					{content.tipo === "Serie" ? "Número de temporadas" : "Número de episodios"}:
-				</strong>{" "}
-				{content.numero_elementos}
-			</p>
+				{/* Attributes */}
+				<p><strong>Año:</strong> {content.production_year}</p>
+				<p><strong>Clasificación de edad:</strong> {content.clasificacion_edad}</p>
+				<p><strong>Descripción:</strong> {content.descripcion}</p>
+				<p>
+					<strong>
+						{content.tipo === "Serie" ? "Número de temporadas" : "Número de episodios"}:
+					</strong>{" "}
+					{content.numero_elementos}
+				</p>
 
-			{/* Child Content Section */}
-			<div className="child-content">
-				<h2>{content.tipo === "Serie" ? "Temporadas" : "Episodios"}</h2>
-				<ul>
-					<li>Child Content 1</li>
-					<li>Child Content 2</li>
-					<li>Child Content 3</li>
-				</ul>
+				{/* Child Content Section */}
+				<div className="child-content">
+					<h2>{content.tipo === "Serie" ? "Temporadas" : "Episodios"}</h2>
+					<ul>
+						<li>Child Content 1</li>
+						<li>Child Content 2</li>
+						<li>Child Content 3</li>
+					</ul>
+				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 }

@@ -1,0 +1,154 @@
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
+}
+
+.main{
+    width: 100%;
+    display: flex; /* Cambia a flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.insert-content-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    margin: 70px;
+    background: #222222;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.insert-content-container h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #cccccc;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #0078d7;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0078d7;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #005bb5;
+}
+
+#logo img {
+    height: 10em;
+    border-radius: 10%;
+    border: 1px solid #ffffff;
+}
+
+#logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Estilo para la notificación push-up */
+.notification {
+    position: fixed;
+    top: 20px; /* Espacio desde la parte superior de la pantalla */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #4CAF50; /* Verde por defecto (éxito) */
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Estilo para la notificación de error */
+.notification.error {
+    background-color: #f44336; /* Rojo para error */
+    border: 1px solid #e53935;
+}
+
+/* Animación de entrada para la notificación */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación para desvanecer la notificación después de 3 segundos */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+footer{
+    width: 100%;
+}

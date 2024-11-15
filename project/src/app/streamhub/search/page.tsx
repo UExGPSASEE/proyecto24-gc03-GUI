@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from 'react';
-import './search.css';
+import '../../../../public/css/search.css';
 import TagList, {Etiqueta} from './TagList';
+import Footer from '../Footer.js'; // Import the Footer component
 
 interface Content {
 	id: number;
@@ -69,54 +70,56 @@ export default function SearchPage() {
 	};
 
 	return (
-		<div className="search-page">
-			<h1>Busca algo que ver hoy</h1>
+        <div className="main">
+            <div className="search-page">
+                <h1>Busca algo que ver hoy</h1>
 
-			{/* Search Bar */}
-			<div className="search-bar">
-				<input
-					type="text"
-					placeholder="Escribe aquí el título..."
-					className="search-input"
-					value={searchText}
-					onChange={(e) => setSearchText(e.target.value)} // Actualizar el texto de búsqueda
-				/>
-				<button className="search-button" onClick={handleSearch}>Buscar</button>
-			</div>
+                {/* Search Bar */}
+                <div className="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Escribe aquí el título..."
+                        className="search-input"
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)} // Actualizar el texto de búsqueda
+                    />
+                    <button className="search-button" onClick={handleSearch}>Buscar</button>
+                </div>
 
-			<TagList
-				selectedTags={selectedTags}
-				onTagClick={handleTagClick}
-				onEtiquetasLoaded={handleEtiquetasLoaded}
-			/>
+                <TagList
+                    selectedTags={selectedTags}
+                    onTagClick={handleTagClick}
+                    onEtiquetasLoaded={handleEtiquetasLoaded}
+                />
 
-			<div className="results-section">
-				<h2>Resultados de búsqueda ({results.length})</h2>
-				{results.length === 0 ? (
-					<p>Cambia tus términos de búsqueda y haz clic en "Buscar"</p>
-				) : (
-					<ul className="results-list">
-						{results.map((content) => {
-							// Determinar URL de enlace según el tipo de contenido
-							const linkUrl = content.tipo === "Serie" || content.tipo === "Temporada"
-								? `http://localhost:3000/streamhub/preview/${content.id}`
-								: `http://localhost:3000/streamhub/watch/${content.id}`;
+                <div className="results-section">
+                    <h2>Resultados de búsqueda ({results.length})</h2>
+                    {results.length === 0 ? (
+                        <p>Cambia tus términos de búsqueda y haz clic en "Buscar"</p>
+                    ) : (
+                        <ul className="results-list">
+                            {results.map((content) => {
+                                // Determinar URL de enlace según el tipo de contenido
+                                const linkUrl = content.tipo === "Serie" || content.tipo === "Temporada"
+                                    ? `http://localhost:3000/streamhub/preview/${content.id}`
+                                    : `http://localhost:3000/streamhub/watch/${content.id}`;
 
-							return (
-								<li key={content.id} className="result-item">
-									<a href={linkUrl} rel="noopener noreferrer">
-										<h3>{content.titulo}</h3>
-									</a>
-									<p>{content.descripcion}</p>
-									<p><strong>Año:</strong> {content.production_year}</p>
-									<p><strong>Clasificación de edad:</strong> {content.clasificacion_edad}</p>
-								</li>
-							);
-						})}
-					</ul>
-				)}
-			</div>
-
-		</div>
+                                return (
+                                    <li key={content.id} className="result-item">
+                                        <a href={linkUrl} rel="noopener noreferrer">
+                                            <h3>{content.titulo}</h3>
+                                        </a>
+                                        <p>{content.descripcion}</p>
+                                        <p><strong>Año:</strong> {content.production_year}</p>
+                                        <p><strong>Clasificación de edad:</strong> {content.clasificacion_edad}</p>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
+                </div>
+            </div>
+            <Footer />
+        </div>
 	);
 }

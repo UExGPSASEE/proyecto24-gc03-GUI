@@ -1,6 +1,7 @@
 import React from 'react';
-import './watch.css';
-import '../../error.css';
+import '../../../../../public/css/watch.css';
+import '../../../../../public/css/error.css';
+import Footer from '../../Footer.js'
 import AddToListButton from "./AddToListButton";
 import LikeButton from './LikeButton';
 
@@ -50,35 +51,38 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
 	}
 
 	return (
-		<div className="video-page">
-			<div className="video-container">
-				<div>
-					{YouTubeEmbed(content.url)} {/* Use the URL from the fetched data */}
-				</div>
-				<div className="video-details">
-					<h1>{content.titulo}</h1> {/* Use the title from the fetched data */}
-					<p className="description">
-						{content.descripcion} {/* Use the description from the fetched data */}
-					</p>
-					<p className="metadata">{minutes > -1 && (<span>{minutes} minutos • </span>)}
-						Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
-					{/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-					<AddToListButton contentId={content.id} userId={1} />
-					{/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-					<LikeButton contentId={content.id} userId={3} />
-				</div>
-			</div>
-			<div className="suggested-videos">
-				<h2>También te podría gustar</h2>
-				<ul>
-					<li>Suggested video 1</li>
-					<li>Suggested video 2</li>
-					<li>Suggested video 3</li>
-					<li>Suggested video 4</li>
-				</ul>
-			</div>
-		</div>
-	);
+        <div>
+            <div className="video-page">
+                <div className="video-container">
+                    <div>
+                        {YouTubeEmbed(content.url)} {/* Use the URL from the fetched data */}
+                    </div>
+                    <div className="video-details">
+                        <h1>{content.titulo}</h1> {/* Use the title from the fetched data */}
+                        <p className="description">
+                            {content.descripcion} {/* Use the description from the fetched data */}
+                        </p>
+                        <p className="metadata">{minutes > -1 && (<span>{minutes} minutos • </span>)}
+                            Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
+                        {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
+                        <AddToListButton contentId={content.id} userId={1}/>
+                        {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
+                        <LikeButton contentId={content.id} userId={3}/>
+                    </div>
+                </div>
+                <div className="suggested-videos">
+                    <h2>También te podría gustar</h2>
+                    <ul>
+                        <li>Suggested video 1</li>
+                        <li>Suggested video 2</li>
+                        <li>Suggested video 3</li>
+                        <li>Suggested video 4</li>
+                    </ul>
+                </div>
+            </div>
+            <Footer/>
+        </div>
+    );
 };
 
 async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {

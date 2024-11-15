@@ -1,10 +1,22 @@
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
+}
+
 /*+++++++++++++++++++++++++++++++++*/
 /*Apartado del perfil con sus datos*/
 /*+++++++++++++++++++++++++++++++++*/
 .gridcontainer {
     display: grid;
     grid-template-columns: 300px 1fr 130px;
-    min-width: 870px;
+
     padding: 30px;
     margin: 50px;
     min-width: 630px;
@@ -13,6 +25,7 @@
     gap: 10px;
     background-color: #222222;
     border-radius: 20px;
+    box-shadow: 5px 5px 10px #0a0a0a;
 }
 
 /*Imagen del usuario*/
@@ -142,4 +155,8 @@
         grid-row-start: 2;
         grid-row-end: 3;
     }
+}
+
+footer{
+    width: 100%;
 }

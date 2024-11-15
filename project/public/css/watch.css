@@ -1,8 +1,13 @@
-/* Basic reset */
 * {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
 }
 
 /* Page layout */
@@ -10,7 +15,7 @@
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 20px 70px 20px;
     background-color: #121212;
     color: #e0e0e0;
     font-family: Arial, sans-serif;
@@ -32,7 +37,7 @@
     color: #aaaaaa;
     font-size: 1.2rem;
     margin-bottom: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 /* Video details */
@@ -93,7 +98,7 @@
     max-width: 300px;
     background-color: #1e1e1e;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
 }
 
 .suggested-videos h2 {
@@ -148,4 +153,8 @@
 .add-to-list-button:focus {
     outline: none; /* Eliminar el borde predeterminado al enfocarse */
     box-shadow: 0 0 5px rgba(255, 165, 0, 0.7); /* Añadir un brillo sutil al enfoque */
+}
+
+footer{
+    width: 100%;
 }

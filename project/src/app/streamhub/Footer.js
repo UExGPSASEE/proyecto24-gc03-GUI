@@ -5,7 +5,7 @@ import InstagramLogo from "../../../public/images/instagramIcon.png";
 import TwitterLogo from "../../../public/images/twitterLogo.png";
 import NetflixLogo from "../../../public/images/netflixLogo.png";
 import PrimeLogo from "../../../public/images/primeLogo.png";
-import './Footer.css';
+import '../../../public/css/Footer.css';
 
 const Footer = () => {
     return (

@@ -1,10 +1,20 @@
-/* app/content/[id]/content.css */
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
+}
 
 /* Page container styling */
 .content-page {
     padding: 20px;
     max-width: 800px;
-    margin: 6em auto 0;
+    margin: 6em auto 70px;
     font-family: Arial, sans-serif;
 }
 
@@ -14,10 +24,10 @@
     color: white;
     font-size: 2.5em;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* Description styling */
@@ -56,7 +66,7 @@
     background: linear-gradient(135deg, #34a853, #b8e994); /* Gradient for child items */
     color: white;
     padding: 15px;
-    border-radius: 6px;
+    border-radius: 20px;
     font-size: 1em;
     font-weight: 500;
     cursor: pointer;
@@ -69,4 +79,8 @@
 .child-content li:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+footer{
+    width: 100%;
 }

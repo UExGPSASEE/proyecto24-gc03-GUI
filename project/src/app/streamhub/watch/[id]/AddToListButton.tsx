@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import './watch.css';
+import '../../../../../public/css/watch.css';
 
 interface AddToListButtonProps {
 	contentId: number;
