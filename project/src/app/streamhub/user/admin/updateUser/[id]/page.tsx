@@ -52,7 +52,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
     const getUserContent = async () => {
         const params = await props.params;
         console.warn("Params: "+params.id);
-        const content = await fetchContent(`http://localhost:8080/StreamHub/admin/${params.id}`);
+        const content = await fetchContent(`http://localhost:8082/StreamHub/admin/${params.id}`);
         if (!content) {
             return <div>No content data available</div>; // Display if data is unavailable
         }
@@ -99,7 +99,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
 
         //Envio de datos al servidor
         try {
-            const response = await fetch(`http://localhost:8080/StreamHub/admin/${contentData.id}`, {
+            const response = await fetch(`http://localhost:8082/StreamHub/admin/${contentData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

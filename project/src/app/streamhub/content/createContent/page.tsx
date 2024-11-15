@@ -50,7 +50,7 @@ function InsertContent() {
         };
         //Envio de datos al servidor
         try {
-            const response = await fetch('http://localhost:8080/StreamHub/contenidos', {
+            const response = await fetch('http://localhost:8081/StreamHub/contenidos', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
