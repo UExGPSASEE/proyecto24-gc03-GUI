@@ -1,9 +1,10 @@
 // app/content/[id]/page.tsx
-import React from 'react';
+//Importamos useState
+import React  from 'react';
 import '../../../../../public/css/preview.css';
 import '../../../../../public/css/error.css';
 import Footer from '../../Footer.js'
-
+import ChildList from './ChildList';
 interface ApiResponse {
 	id: number;
 	tipo: string;
@@ -54,7 +55,8 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
 				</div>
 			</div>
 		); // Render error message for invalid types
-	}
+	}// Somos o una serie o una temporada
+
 
 	// Calculate duration in minutes if available
 	const minutes = content.duracion !== null ? Math.floor(content.duracion / 60) : -1;
@@ -77,14 +79,7 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
 				</p>
 
 				{/* Child Content Section */}
-				<div className="child-content">
-					<h2>{content.tipo === "Serie" ? "Temporadas" : "Episodios"}</h2>
-					<ul>
-						<li>Child Content 1</li>
-						<li>Child Content 2</li>
-						<li>Child Content 3</li>
-					</ul>
-				</div>
+				<ChildList content={content} />
 			</div>
 			<Footer />
 		</div>

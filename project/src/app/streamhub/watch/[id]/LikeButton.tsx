@@ -32,25 +32,6 @@ const LikeButton: React.FC<LikeButtonProps> = ({contentId, userId}) => {
         fetchLikeStatus();
     }, [contentId, userId]);
 
-    useEffect(() => {
-        // Fetch the list of liked content IDs from the API
-        const fetchNumLikes = async () => {
-            try {
-                const response = await fetch(`http://localhost:8080/StreamHub/likes/contenido/${contentId}`);
-                if (response.ok) {
-                    const num = await response.json();
-                    // Check if the contentId is in the list of liked content IDs
-                    setNumLikes(num);
-                } else {
-                    console.error("Failed to fetch like status");
-                }
-            } catch (error) {
-                console.error("Error fetching like status:", error);
-            }
-        };
-
-        fetchNumLikes();
-    }, [contentId, userId]);
 
     const toggleLike = async () => {
         try {
@@ -72,7 +53,14 @@ const LikeButton: React.FC<LikeButtonProps> = ({contentId, userId}) => {
 
             if (response.ok) {
                 setLiked(!liked);
-                setNumLikes(liked ? numLikes - 1 : numLikes + 1);
+                //Actualizar el numero de likes
+                if(liked){
+                    if(numLikes>0){
+                        setNumLikes(numLikes-1);
+                    }
+                }else{
+                    setNumLikes(numLikes+1);
+                }
             } else {
                 console.error("Failed to update like status");
             }
