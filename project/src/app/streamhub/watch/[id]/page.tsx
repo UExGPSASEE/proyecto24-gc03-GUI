@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 import '../../../../../public/css/watch.css';
 import '../../../../../public/css/error.css';
 import Footer from '../../Footer.js'
 import AddToListButton from "./AddToListButton";
 import LikeButton from './LikeButton';
+import {JwtPayload} from "@/app/streamhub/login/page";
+import {jwtDecode} from "jwt-decode";
 
 interface ApiResponse {
 	id: number;
@@ -26,6 +30,9 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
 	const { id } = await params;
 	const apiUrl = `http://localhost:8081/StreamHub/contenidos/${id}`;
 	const content = await fetchContent(apiUrl);
+	const token = localStorage.getItem('authToken');
+	const decodedToken = token  ?  jwtDecode<JwtPayload>(token) : null;
+	const userId = decodedToken.userId;
 
 	if (!content) {
 		return <div>No video data available</div>;
@@ -65,9 +72,9 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
                         <p className="metadata">{minutes > -1 && (<span>{minutes} minutos • </span>)}
                             Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
                         {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-                        <AddToListButton contentId={content.id} userId={1}/>
+                        <AddToListButton contentId={content.id} userId={userId}/>
                         {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-                        <LikeButton contentId={content.id} userId={3}/>
+                        <LikeButton contentId={content.id} userId={userId}/>
                     </div>
                 </div>
                 <div className="suggested-videos">
