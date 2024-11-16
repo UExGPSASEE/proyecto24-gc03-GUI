@@ -9,3 +9,6 @@ Fuera de la carpeta project:
 
 `npm install @types/react-router-dom`
 
+`npm install axios`
+
+`npm install jwt-decode`
