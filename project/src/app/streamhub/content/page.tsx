@@ -1,0 +1,1 @@
+// Página que muestra todos los contenidos para el gestor, con los botones de editar y borrar
