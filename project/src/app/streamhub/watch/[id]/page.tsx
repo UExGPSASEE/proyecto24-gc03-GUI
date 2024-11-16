@@ -71,13 +71,8 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
                     </div>
                 </div>
                 <div className="suggested-videos">
-                    <h2>También te podría gustar</h2>
-                    <ul>
-                        <li>Suggested video 1</li>
-                        <li>Suggested video 2</li>
-                        <li>Suggested video 3</li>
-                        <li>Suggested video 4</li>
-                    </ul>
+                    <h2>¿Te interesa ver otro contenido?</h2>
+					<a href="http://localhost:3000/streamhub/search"> Volver a la búsqueda </a>
                 </div>
             </div>
             <Footer/>

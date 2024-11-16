@@ -107,20 +107,20 @@ body {
     margin-bottom: 15px;
 }
 
-.suggested-videos ul {
-    list-style-type: none;
+/* Estilo para el enlace de búsqueda */
+.suggested-videos a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.suggested-videos li {
-    font-size: 1rem;
-    color: #cccccc;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.suggested-videos li:hover {
-    color: #ffffff;
+.suggested-videos a:hover {
+    background-color: #0056b3;
 }
 
 .add-to-list-container {

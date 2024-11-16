@@ -64,7 +64,7 @@ body {
 .child-content li {
     margin-right: 20px;
     background: linear-gradient(135deg, #34a853, #b8e994); /* Gradient for child items */
-    color: white;
+    color: black;
     padding: 15px;
     border-radius: 20px;
     font-size: 1em;
