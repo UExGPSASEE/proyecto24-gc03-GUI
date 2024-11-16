@@ -1,7 +1,11 @@
-// app/list/page.tsx
-import React from 'react';
+"use client";
+
+import React, { useState, useEffect } from 'react';
 import '../../../../public/css/myList.css';
-import DeleteFromListButton from "./DeleteFromListButton"
+import '../../../../public/css/error.css';
+import DeleteFromListButton from "./DeleteFromListButton";
+import {jwtDecode} from "jwt-decode";
+import {JwtPayload} from "@/app/streamhub/login/page";
 
 // Interfaz para la respuesta de cada contenido
 interface ApiResponse {
@@ -17,67 +21,95 @@ interface ApiResponse {
 	url: string;
 }
 
-// Interfaz para la respuesta que contiene solo los IDs
-interface ContentListResponse {
-	contenidos: number[]; // Lista de IDs de contenidos
-}
-
-// Función para obtener la lista de contenidos de un usuario
-async function fetchContentList(apiUrl: string): Promise<ContentListResponse | null> {
-	try {
-		const response = await fetch(apiUrl);
-		if (!response.ok) {
-			console.error("Network response was not ok", response.statusText);
-			return null;
+const UserListPage = () => {
+	const [contentDetails, setContentDetails] = useState<ApiResponse[]>([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | null>(null);
+	let isTokenError = false;
+	let userId: number = -1;
+	const token = localStorage.getItem('authToken');
+	if (token) {
+		try {
+			const decodedToken = jwtDecode<JwtPayload>(token);
+			console.log("Usuario: ", decodedToken.userId);
+			if (decodedToken.role !== 'ROLE_CLIENTE') {
+				console.error("Error en el rol del usuario");
+				isTokenError = true;
+			} else {
+				userId = decodedToken.userId;
+			}
+		} catch (error) {
+			isTokenError = true;
+			console.error("Error decoding token:", error);
 		}
-		return await response.json(); // Esperamos un array de IDs
-	} catch (error) {
-		console.error("Fetch error:", error);
-		return null;
+	} else {
+		isTokenError = true;
+		console.error("Error al obtener el token.");
 	}
-}
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const apiUrlForIds = `http://localhost:8080/StreamHub/miLista/${userId}`;
+				const listResponse = await fetch(apiUrlForIds).then((res) => res.json());
 
-// Función para obtener los detalles de un contenido
-async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {
-	try {
-		const response = await fetch(apiUrl);
-		if (!response.ok) {
-			console.error("Network response was not ok", response.statusText);
-			return null;
-		}
-		return await response.json();
-	} catch (error) {
-		console.error("Fetch error:", error);
-		return null;
+				if (!listResponse || !listResponse.contenidos) {
+					setError('Error fetching content list.');
+					return;
+				}
+
+				// Obtener los detalles de los contenidos a partir de los IDs
+				const contentDetailsArray: ApiResponse[] = [];
+				for (const id of listResponse.contenidos) {
+					const apiUrlForContent = `http://localhost:8081/StreamHub/contenidos/${id}`;
+					const content = await fetch(apiUrlForContent).then((res) => res.json());
+					if (content) {
+						contentDetailsArray.push(content);
+					}
+				}
+
+				setContentDetails(contentDetailsArray);
+			} catch (error) {
+				setError('An error occurred while fetching data.');
+				console.error('Error:', error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
+
+	if (loading) {
+		return <div>Loading...</div>;
 	}
-}
 
-// El componente Server Component que obtiene los datos y los pasa como props
-export default async function UserListPage() {
-	const userId = 1;
-	const apiUrlForIds = `http://localhost:8080/StreamHub/miLista/${userId}`;
-	const listResponse = await fetchContentList(apiUrlForIds);
-
-	if (!listResponse || !listResponse.contenidos) {
-		return <div>Error fetching data.</div>;
+	if (userId === -1) {
+		return <div className={"error-page"}>Error con la id del usuario</div>;
 	}
 
-	// Obtener los detalles de los contenidos a partir de los IDs
-	const contentDetails: ApiResponse[] = [];
-	for (const id of listResponse.contenidos) {
-		const apiUrlForContent = `http://localhost:8081/StreamHub/contenidos/${id}`;
-		const content = await fetchContent(apiUrlForContent);
-		if (content) {
-			contentDetails.push(content);
-		}
+	if (error) {
+		return <div className={"error-page"}>{error}</div>;
 	}
 
-	// Pasamos los contenidos como props al componente
-	return <UserList contentDetails={contentDetails} />;
-}
+	if (isTokenError) {
+		return (
+			<div className="error-page">
+				<h1>Error: Debes ser un cliente para acceder a esta página</h1>
+				<div>
+					<span>Por favor, accede a </span>
+					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+					<span> para iniciar sesión.</span>
+				</div>
+			</div>
+		);
+	}
+
+
+	return <UserList contentDetails={contentDetails} userId={userId} />;
+};
 
 // Componente de presentación que recibe los datos como props
-const UserList = ({ contentDetails }: { contentDetails: ApiResponse[] }) => {
+const UserList = ({ contentDetails, userId }: { contentDetails: ApiResponse[], userId: number }) => {
 	return (
 		<div className="user-list-page">
 			<h1>Mi Lista</h1>
@@ -89,12 +121,13 @@ const UserList = ({ contentDetails }: { contentDetails: ApiResponse[] }) => {
 						<div className="item-actions">
 							<a href={"http://localhost:3000/streamhub/watch/" + content.id}
 							   className="view-button">Ver</a>
-							<DeleteFromListButton contentId={content.id} userId={1}/>
+							<DeleteFromListButton contentId={content.id} userId={userId}/>
 						</div>
-
 					</div>
 				))}
 			</div>
 		</div>
 	);
 };
+
+export default UserListPage;

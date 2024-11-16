@@ -70,12 +70,11 @@ const ChildList: React.FC<ChildListProps> = ({content}) => {
                 {children ? (
                     children.map((child) => (
                         <li key={child.id}><a
-                            href={urlToContent += content.tipo === "Serie" ? "preview/" + child.id : "watch/" + child.id}>
+                            href={urlToContent + (content.tipo === "Serie" ? "preview/" + child.id : "watch/" + child.id)}>
                             {child.titulo} </a></li>
                     ))
                 ) : (
-                    <li>Este contenido no tiene {tipo === "Temporadas" ? "temporadas" : "episodios"} asociados a
-                        él. </li>
+                    <li>Cargando {tipo === "Temporadas" ? "temporadas" : "episodios"}... </li>
                 )}
             </ul>
         </div>

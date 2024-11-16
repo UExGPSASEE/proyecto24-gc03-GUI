@@ -2,8 +2,11 @@
 
 import React, { useState } from 'react';
 import '../../../../public/css/search.css';
+import '../../../../public/css/error.css';
 import TagList, {Etiqueta} from './TagList';
-import Footer from '../Footer.js'; // Import the Footer component
+import Footer from '../Footer.js';
+import {jwtDecode} from "jwt-decode";
+import {JwtPayload} from "@/app/streamhub/login/page"; // Import the Footer component
 
 interface Content {
 	id: number;
@@ -24,6 +27,37 @@ export default function SearchPage() {
 	const [results, setResults] = useState<Content[]>([]);
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
 	let searchUrl: string = "http://localhost:8081/StreamHub/contenidos";
+	let isTokenError = false;
+	const token = localStorage.getItem('authToken');
+	if (token) {
+		try {
+			const decodedToken = jwtDecode<JwtPayload>(token);
+			console.log("Usuario: ", decodedToken.userId);
+			if (decodedToken.role !== 'ROLE_CLIENTE') {
+				console.error("Error en el rol del usuario");
+				isTokenError = true;
+			}
+		} catch (error) {
+			isTokenError = true;
+			console.error("Error decoding token:", error);
+		}
+	} else {
+		isTokenError = true;
+		console.error("Error al obtener el token.");
+	}
+
+	if (isTokenError) {
+		return (
+			<div className="error-page">
+				<h1>Error: Debes ser un cliente para acceder a esta página</h1>
+				<div>
+					<span>Por favor, accede a </span>
+					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+					<span> para iniciar sesión.</span>
+				</div>
+			</div>
+		);
+	}
 
 	// Función para manejar selección y deselección de etiquetas
 	const handleTagClick = (tagName: string) => {

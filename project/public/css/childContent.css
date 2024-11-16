@@ -39,15 +39,9 @@
 }
 
 .child-content li:hover {
-    background-color: #444444;
-    color: #ffffff;
+    color: #222222;
 }
 
 .child-content li a {
     text-decoration: none;
-    color: #007bff;
-}
-
-.child-content li a:hover {
-    text-decoration: underline;
 }

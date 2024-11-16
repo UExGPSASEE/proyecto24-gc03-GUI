@@ -1,13 +1,13 @@
-'use client';
-
-import React from 'react';
+"use client";
+import React, { useEffect, useState } from 'react';
 import '../../../../../public/css/watch.css';
 import '../../../../../public/css/error.css';
-import Footer from '../../Footer.js'
+import Footer from '../../Footer.js';
 import AddToListButton from "./AddToListButton";
 import LikeButton from './LikeButton';
-import {JwtPayload} from "@/app/streamhub/login/page";
 import {jwtDecode} from "jwt-decode";
+import {JwtPayload} from "@/app/streamhub/login/page";
+import {useParams} from "next/navigation";
 
 interface ApiResponse {
 	id: number;
@@ -23,19 +23,82 @@ interface ApiResponse {
 }
 
 interface VideoPageProps {
-	params: Promise<{ id: string }>;
+	params: { id: string };
 }
 
-const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
-	const { id } = await params;
-	const apiUrl = `http://localhost:8081/StreamHub/contenidos/${id}`;
-	const content = await fetchContent(apiUrl);
-	const token = localStorage.getItem('authToken');
-	const decodedToken = token  ?  jwtDecode<JwtPayload>(token) : null;
-	const userId = decodedToken.userId;
+const VideoPage: React.FC<VideoPageProps> = () => {
+	const [content, setContent] = useState<ApiResponse | null>(null);
+	const [userId, setUserId] = useState<number | null>(null);
+	const { id } = useParams();
+	let roleError = false;
+
+	// Obtener el contenido y el token al cargar el componente
+	useEffect(() => {
+		const apiUrl = `http://localhost:8081/StreamHub/contenidos/${id}`;
+
+		// Función para obtener contenido de la API
+		async function fetchContent() {
+			try {
+				const response = await fetch(apiUrl);
+				if (!response.ok) {
+					console.error("Network response was not ok", response.statusText);
+					return;
+				}
+				const data = await response.json();
+				setContent(data);
+			} catch (error) {
+				console.error("Fetch error:", error);
+			}
+		}
+
+		// Obtener token desde localStorage y decodificar el userId
+		const token = localStorage.getItem('authToken');
+		if (token) {
+			try {
+				const decodedToken = jwtDecode<JwtPayload>(token);
+				console.log("Usuario: ", decodedToken.userId);
+				setUserId(decodedToken.userId);
+				if (decodedToken.role !== 'ROLE_CLIENTE') {
+					roleError = true;
+				}
+			} catch (error) {
+				console.error("Error decoding token:", error);
+			}
+		} else {
+			console.error("Error al obtener el token.");
+		}
+
+		// Llamar a la función fetchContent para obtener el contenido
+		fetchContent();
+	}, [id]);
 
 	if (!content) {
-		return <div>No video data available</div>;
+		return <div className="loading-screen">
+			<div className="spinner"></div>
+			<p>Por favor, espera mientras cargamos el contenido...</p>
+		</div>;
+	}
+
+	if (!userId) {
+		return <div className={"error-page"}>
+			<h1>Error: no se pudo obtener el usuario</h1>
+			<div>
+				<span>Por favor, accede a </span>
+				<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+				<span> para iniciar sesión.</span>
+			</div>
+		</div>;
+	}
+
+	if (roleError) {
+		return <div className={"error-page"}>
+			<h1>Error: debes ser un cliente para acceder a esta página</h1>
+			<div>
+				<span>Por favor, accede a </span>
+				<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+				<span> para iniciar sesión.</span>
+			</div>
+		</div>;
 	}
 
 	if (content.tipo === "Serie" || content.tipo === "Temporada") {
@@ -43,8 +106,7 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
 			<div className="error-page">
 				<h1>Error: Tipo de contenido no válido</h1>
 				<div>
-                    <span>No se puede visualizar un contenido de tipo "{content.tipo}".
-                    Por favor, accede a </span>
+					<span>No se puede visualizar un contenido de tipo "{content.tipo}". Por favor, accede a </span>
 					<a href={`http://localhost:3000/streamhub/preview/${content.id}`}>esta página</a>
 					<span> para ver los detalles del contenido.</span>
 				</div>
@@ -52,65 +114,47 @@ const VideoPage: React.FC<VideoPageProps> = async ({ params }) => {
 		);
 	}
 
-	let minutes = -1;
-	if (content.duracion !== null) {
-		minutes = content.duracion / 60;
-	}
+	const minutes = content.duracion !== null ? content.duracion / 60 : -1;
 
-	return (
-        <div>
-            <div className="video-page">
-                <div className="video-container">
-                    <div>
-                        {YouTubeEmbed(content.url)} {/* Use the URL from the fetched data */}
-                    </div>
-                    <div className="video-details">
-                        <h1>{content.titulo}</h1> {/* Use the title from the fetched data */}
-                        <p className="description">
-                            {content.descripcion} {/* Use the description from the fetched data */}
-                        </p>
-                        <p className="metadata">{minutes > -1 && (<span>{minutes} minutos • </span>)}
-                            Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}</p>
-                        {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-                        <AddToListButton contentId={content.id} userId={userId}/>
-                        {/* Cuando integremos en esta parte de la aplicación JWT, el userId se obtendrá de él*/}
-                        <LikeButton contentId={content.id} userId={userId}/>
-                    </div>
-                </div>
-                <div className="suggested-videos">
-                    <h2>¿Te interesa ver otro contenido?</h2>
-					<a href="http://localhost:3000/streamhub/search"> Volver a la búsqueda </a>
-                </div>
-            </div>
-            <Footer/>
-        </div>
-    );
-};
-
-async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {
-	try {
-		const response = await fetch(apiUrl);
-		if (!response.ok) {
-			console.error("Network response was not ok", response.statusText);
-			return null;
-		}
-		return await response.json();
-	} catch (error) {
-		console.error("Fetch error:", error);
-		return null;
-	}
-}
-
-function YouTubeEmbed(url: string) {
-	const videoId = url.split("v=")[1].split("&")[0];
 	return (
 		<div>
-			<iframe className={"video-player"}
-					src={`https://www.youtube.com/embed/${videoId}`}
-					title="YouTube video player"
-					frameBorder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-					allowFullScreen
+			<div className="video-page">
+				<div className="video-container">
+					<div>
+						{YouTubeEmbed(content.url)}
+					</div>
+					<div className="video-details">
+						<h1>{content.titulo}</h1>
+						<p className="description">{content.descripcion}</p>
+						<p className="metadata">
+							{minutes > -1 && <span>{minutes} minutos • </span>}
+							Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}
+						</p>
+						<AddToListButton contentId={content.id} userId={userId} />
+						<LikeButton contentId={content.id} userId={userId} />
+					</div>
+				</div>
+				<div className="suggested-videos">
+					<h2>¿Te interesa ver otro contenido?</h2>
+					<a href="http://localhost:3000/streamhub/search">Volver a la búsqueda</a>
+				</div>
+			</div>
+			<Footer />
+		</div>
+	);
+};
+
+// Función para renderizar el video de YouTube
+function YouTubeEmbed(url: string) {
+	const videoId = url.split("v=")[1]?.split("&")[0];
+	return (
+		<div>
+			<iframe
+				className="video-player"
+				src={`https://www.youtube.com/embed/${videoId}`}
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowFullScreen
 			></iframe>
 		</div>
 	);
