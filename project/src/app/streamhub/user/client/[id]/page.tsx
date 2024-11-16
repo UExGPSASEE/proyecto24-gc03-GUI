@@ -108,6 +108,12 @@ export default async function ContentPage(props: { params: Promise<{ id: string 
                     </a>
                 </div>
             </div>
+            {/* Botones que recogen funcionalidades del usuario */}
+            <div className="gridBotones">
+                {/* No son buttons porque no funciona del lado del servidor */}
+                <p className="boton_Apartados"><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></p>
+                <p className="boton_Apartados"><a href="http://localhost:3000/streamhub/content">Catálogo Contenidos</a></p>
+            </div>
             <Footer/>
         </div>
     );

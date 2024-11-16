@@ -38,6 +38,12 @@
     list-style-type: none; /* Elimina los puntos de la izquierda de los elementos de las listas */
 }
 
+/*Lista de Información general*/
+#exploreLinks li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 /*Cabeceras de los apartados*/
 #footerBody div h1 {
     font-size: 2rem; /* Tamaño de fuente para los encabezados */

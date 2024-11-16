@@ -9,10 +9,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ajuste para que el contenido siempre ocupe toda la ventana */
     background: linear-gradient(to bottom right, #121212, #1e1e1e);
     color: #e0e0e0;
-    overflow-y: auto; /* Permite el desplazamiento si el contenido es más grande que la pantalla */
 }
 
 .main{
@@ -31,7 +29,6 @@ body {
     border-radius: 20px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
     text-align: center;
-    overflow: visible; /* Asegura que todo el contenido se muestre */
 }
 
 .insert-content-container h1 {
