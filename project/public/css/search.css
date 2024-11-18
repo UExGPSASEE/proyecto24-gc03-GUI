@@ -124,7 +124,7 @@ body {
     background-color: #333; /* Darker background on hover */
 }
 
-.result-item a {
+.general-options a {
     display: inline-block;       /* Permite aplicar padding y otras propiedades como si fuera un botón */
     padding: 10px 20px;          /* Espaciado interno como en un botón */
     background: linear-gradient(135deg, #4a90e2, #9013fe);   /* Fondo azul */
@@ -144,4 +144,57 @@ body {
     transform: scale(0.98);      /* Efecto cuando se hace clic (pequeño encogimiento) */
 }
 
+/* Contenedor de las acciones del gestor */
+.gestor-actions {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 8px; /* Espacio por encima de las acciones */
+}
 
+/* Estilo para el enlace de edición */
+.gestor-actions .edit-link {
+    color: #4CAF50; /* Verde para indicar edición */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #4CAF50;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.gestor-actions .edit-link:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Estilo para el enlace de borrado */
+.gestor-actions .delete-link {
+    color: #f44336; /* Rojo para indicar borrado */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #f44336;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.gestor-actions .delete-link:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.gestor-actions .create-content {
+    color: #007BFF; /* Azul para indicar creación */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    margin-bottom: 10px;
+}
+
+.gestor-actions .create-content:hover {
+    background-color: #007BFF;
+    color: white;
+}

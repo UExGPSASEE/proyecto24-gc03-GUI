@@ -28,14 +28,18 @@ export default function SearchPage() {
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
 	let searchUrl: string = "http://localhost:8081/StreamHub/contenidos";
 	let isTokenError = false;
+	let isGestor = false;
 	const token = localStorage.getItem('authToken');
 	if (token) {
 		try {
 			const decodedToken = jwtDecode<JwtPayload>(token);
 			console.log("Usuario: ", decodedToken.userId);
-			if (decodedToken.role !== 'ROLE_CLIENTE') {
+			if (decodedToken.role !== 'ROLE_CLIENTE' && decodedToken.role !== 'ROLE_GESTOR') {
 				console.error("Error en el rol del usuario");
 				isTokenError = true;
+			} else {
+				isGestor = decodedToken.role === 'ROLE_GESTOR';
+				isGestor = true;
 			}
 		} catch (error) {
 			isTokenError = true;
@@ -49,7 +53,7 @@ export default function SearchPage() {
 	if (isTokenError) {
 		return (
 			<div className="error-page">
-				<h1>Error: Debes ser un cliente para acceder a esta página</h1>
+				<h1>Error: Debes ser un cliente o un gestor para acceder a esta página</h1>
 				<div>
 					<span>Por favor, accede a </span>
 					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
@@ -120,6 +124,12 @@ export default function SearchPage() {
                     <button className="search-button" onClick={handleSearch}>Buscar</button>
                 </div>
 
+				{isGestor && (
+					<div className="gestor-actions">
+						<a href={`http://localhost:3000/streamhub/content/createContent/`} className="create-content">Añade un contenido</a>
+					</div>
+				)}
+
                 <TagList
                     selectedTags={selectedTags}
                     onTagClick={handleTagClick}
@@ -140,12 +150,20 @@ export default function SearchPage() {
 
                                 return (
                                     <li key={content.id} className="result-item">
+										<span className={"general-options"}>
                                         <a href={linkUrl} rel="noopener noreferrer">
                                             <h3>{content.titulo}</h3>
                                         </a>
                                         <p>{content.descripcion}</p>
                                         <p><strong>Año:</strong> {content.production_year}</p>
                                         <p><strong>Clasificación de edad:</strong> {content.clasificacion_edad}</p>
+										</span>
+										{isGestor && (
+											<div className="gestor-actions">
+												<a href={`http://localhost:3000/streamhub/content/updateContent/${content.id}`} className="edit-link">Editar</a>
+												<a href={`http://localhost:3000/streamhub/content/deleteContent/${content.id}`} className="delete-link">Borrar</a>
+											</div>
+										)}
                                     </li>
                                 );
                             })}
