@@ -87,7 +87,8 @@ const LoginPage = () => {
                     <button type="submit" className="login-button">Iniciar sesión</button>
                 </form>
                 <br></br>
-                <a href="./signup" className="signup-link">¿Eres nuevo por aquí? Regístrate</a>
+                <a href="./signup" className="signup-link">¿Eres nuevo por aquí? Regístrate</a><br/>
+                <a href="./request" className="reset-link">¿Olvidaste tu contraseña?</a>
             </div>
             <Footer/>
         </div>
