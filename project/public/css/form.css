@@ -90,6 +90,16 @@ body {
     text-decoration: underline;
 }
 
+.reset-link {
+    margin-top: 1rem;
+    color: #0078d7;
+    text-decoration: none;
+}
+
+.reset-link:hover {
+    text-decoration: underline;
+}
+
 #logo img{
     height: 10em;
     border-radius: 10%;
