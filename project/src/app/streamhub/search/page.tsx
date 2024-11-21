@@ -39,7 +39,6 @@ export default function SearchPage() {
 				isTokenError = true;
 			} else {
 				isGestor = decodedToken.role === 'ROLE_GESTOR';
-				isGestor = true;
 			}
 		} catch (error) {
 			isTokenError = true;
