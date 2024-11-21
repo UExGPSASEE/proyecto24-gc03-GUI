@@ -200,7 +200,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         <div className="main">
             <nav id="header">
                 {/* Logo de la empresa */}
-                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
                 {/* Nombre comercial de la empresa*/}
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
@@ -226,11 +226,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
                 </div>
             </nav>
             <div className="insert-content-container">
-                <h1>StreamHub</h1>
-                <div id="logo">
-                    <img src={Logo.src} alt="Logo"/>
-                </div>
-                <p>Modifica la información asociada a tu perfil </p>
+                <h1>Editar Perfil</h1>
                 <form onSubmit={handleSubmit}>
                     <input type="hidden" id="id" name="id" value={paramsId}/>
 

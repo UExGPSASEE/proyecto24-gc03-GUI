@@ -140,19 +140,19 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
     return (
         <div className="main">
             <nav id="header">
-                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa" /></a>
+                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+                                                                      alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
-                    <li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-                    <li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+                    <li><a href="http://localhost:3000/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
                 </ul>
-                <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma" />
+                <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
                 <div className="iniciarSesion">
                     <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/admin/${id}`}>
                         <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path
                                 d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                                style={{ fill: "white" }}
+                                style={{fill: "white"}}
                             />
                         </svg>
                     </a>
@@ -161,10 +161,11 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
                     <a href={`http://localhost:3000/streamhub/user/admin/${id}`}>Mi Cuenta</a>
                 </div>
             </nav>
-            <div className="update-user-container">
+
+            <div className="insert-content-container">
                 <h1>Editar Administrador</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type="hidden" id="id" name="id" value={id} />
+                    <input type="hidden" id="id" name="id" value={id}/>
 
                     <div className="form-group">
                         <label htmlFor="nombre">Nombre</label>
@@ -191,6 +192,18 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
                     </div>
 
                     <div className="form-group">
+                        <label htmlFor="fecha_de_nacimiento">Fecha de Nacimiento</label>
+                        <input
+                            type="date"
+                            id="fecha_de_nacimiento"
+                            name="fecha_de_nacimiento"
+                            value={fecha_de_nacimiento}
+                            required
+                            onChange={(e) => setFechaDeNacimiento(e.target.value)}
+                        />
+                    </div>
+
+                    <div className="form-group">
                         <label htmlFor="email">Email</label>
                         <input
                             type="email"
@@ -211,7 +224,7 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
                     </div>
                 )}
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }

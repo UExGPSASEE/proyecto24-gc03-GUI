@@ -32,6 +32,7 @@ export default function ContentPage() {
 	// Estados para almacenar el contenido y el estado del borrado
 	const [content, setContent] = useState<ApiResponse | null>(null);
 	const [deleteStatus, setDeleteStatus] = useState<string | null>(null);
+	let userId: number = -1;
 
 	let isTokenError = false;
 	const token = localStorage.getItem('authToken');
@@ -39,6 +40,7 @@ export default function ContentPage() {
 		try {
 			const decodedToken = jwtDecode<JwtPayload>(token);
 			console.log("Usuario: ", decodedToken.userId);
+			userId = decodedToken.userId;
 			if (decodedToken.role !== 'ROLE_GESTOR') {
 				console.error("Error en el rol del usuario");
 				isTokenError = true;
@@ -111,16 +113,21 @@ export default function ContentPage() {
 	return (
 		<div className="content-page">
 			<nav id="header">
-				<a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+				{/* Logo de la empresa */}
+				<a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+																	  alt="Logo de la empresa"/></a>
+				{/* Nombre comercial de la empresa*/}
 				<div className="TextLogo">StreamHub</div>
 				<ul className="NavLinks">
-					<li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-					<li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+					<li><a href="http://localhost:3000/streamhub/search">Gestionar contenido</a></li>
 				</ul>
+				{/* Menú de idioma*/}
 				<img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
+				{/* Iniciar sesión */}
 				<div className="iniciarSesion">
-					<a className="iniciarSesion" href={`http://localhost:3000/streamhub/login`}>
-						<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+					<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/manager/${userId}`}>
+						<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
+							 viewBox="0 0 448 512">
 							<path
 								d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
 								style={{fill: "white"}}
@@ -129,7 +136,7 @@ export default function ContentPage() {
 					</a>
 				</div>
 				<div className="miCuenta">
-					<a href={`http://localhost:3000/streamhub/login`}>Mi Cuenta</a>
+					<a href={`http://localhost:3000/streamhub/user/manager/${userId}`}>Mi Cuenta</a>
 				</div>
 			</nav>
 

@@ -45,6 +45,8 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
     const [token, setToken] = useState<string | null>(null);
+    const [isGestor, setIsGestor] = useState(false);
+    const [userIdToken, setUserIdToken] = useState<number>();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,12 +59,15 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
             if (storedToken) {
                 try {
                     const decodedToken = jwtDecode<JwtPayload>(storedToken);
+                    setUserIdToken(decodedToken.userId);
                     //Comprobar la logica para que puedan acceder tanto los admin como los gestores
                     if (!((decodedToken.role === 'ROLE_GESTOR' && decodedToken.userId === Number(managerId)) || decodedToken.role === 'ROLE_ADMINISTRADOR')) {
                         console.error("Error: Rol incorrecto o acceso no autorizado");
                         setIsTokenError(true);
                         setLoading(false);
                         return;
+                    }else{
+                        setIsGestor(decodedToken.role === 'ROLE_GESTOR');
                     }
 
                     const response = await fetch(apiUrl, {
@@ -136,26 +141,53 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
     return (
         <div className="content-page">
             <nav id="header">
-                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub</div>
-                <ul className="NavLinks">
-                    <li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-                    <li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
-                </ul>
+                {isGestor && (
+                    <ul className="NavLinks">
+                        <li><a href="http://localhost:3000/streamhub/search">Gestion del contenido</a></li>
+                    </ul>
+                )}
+                {!isGestor && (
+                    <ul className="NavLinks">
+                        <li><a href="http://localhost:3000/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
+                    </ul>
+                )}
                 <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
-                <div className="iniciarSesion">
-                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/manager/${manager.id}`}>
-                        <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                            <path
-                                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
-                                style={{fill: "white"}}
-                            />
-                        </svg>
-                    </a>
-                </div>
-                <div className="miCuenta">
-                    <a href={`http://localhost:3000/streamhub/user/manager/${manager.id}`}>Mi Cuenta</a>
-                </div>
+                {isGestor && (
+                    <div className="iniciarSesion">
+                        <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/manager/${manager.id}`}>
+                            <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                                    style={{ fill: "white" }}
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                )}
+                {!isGestor && (
+                    <div className="iniciarSesion">
+                        <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/admin/${userIdToken}`}>
+                            <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                                    style={{fill: "white"}}
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                )}
+                {isGestor && (
+                    <div className="miCuenta">
+                        <a href={`http://localhost:3000/streamhub/user/manager/${manager.id}`}>Mi Cuenta</a>
+                    </div>
+                )}
+                {!isGestor && (
+                    <div className="miCuenta">
+                        <a href={`http://localhost:3000/streamhub/user/admin/${userIdToken}`}>Mi Cuenta</a>
+                    </div>
+                )}
             </nav>
             <div className="borrar">
                 <form onSubmit={handleSubmit}>

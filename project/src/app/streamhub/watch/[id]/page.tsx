@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from 'react';
 import '../../../../../public/css/watch.css';
 import '../../../../../public/css/error.css';
@@ -8,6 +9,9 @@ import LikeButton from './LikeButton';
 import {jwtDecode} from "jwt-decode";
 import {JwtPayload} from "@/app/streamhub/login/page";
 import {useParams} from "next/navigation";
+import Logo from "../../../../../public/images/LogoStreamHub.png";
+import Bandera from "../../../../../public/images/bandera_españa.png";
+import '../../../../../public/css/Header.css';
 
 interface ApiResponse {
 	id: number;
@@ -29,8 +33,8 @@ interface VideoPageProps {
 const VideoPage: React.FC<VideoPageProps> = () => {
 	const [content, setContent] = useState<ApiResponse | null>(null);
 	const [userId, setUserId] = useState<number | null>(null);
+	const [roleError, setRoleError] = useState<boolean>(false);
 	const { id } = useParams();
-	let roleError = false;
 
 	// Obtener el contenido y el token al cargar el componente
 	useEffect(() => {
@@ -58,8 +62,9 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 				const decodedToken = jwtDecode<JwtPayload>(token);
 				console.log("Usuario: ", decodedToken.userId);
 				setUserId(decodedToken.userId);
+				console.log("Rol: ", decodedToken.role);
 				if (decodedToken.role !== 'ROLE_CLIENTE') {
-					roleError = true;
+					setRoleError(true);
 				}
 			} catch (error) {
 				console.error("Error decoding token:", error);
@@ -118,6 +123,34 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 
 	return (
 		<div>
+			<nav id="header">
+				{/* Logo de la empresa */}
+				<a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+				{/* Nombre comercial de la empresa*/}
+				<div className="TextLogo">StreamHub</div>
+				<ul className="NavLinks">
+					<li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
+					<li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+				</ul>
+				{/* Menú de idioma*/}
+				<img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
+				{/* Iniciar sesión */}
+				<div className="iniciarSesion">
+					<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/client/${userId}`}>
+						<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
+							 viewBox="0 0 448 512">
+							<path
+								d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+								style={{fill: "white"}}
+							/>
+						</svg>
+					</a>
+				</div>
+				<div className="miCuenta">
+					<a href={`http://localhost:3000/streamhub/user/client/${userId}`}>Mi Cuenta</a>
+				</div>
+			</nav>
+
 			<div className="video-page">
 				<div className="video-container">
 					<div>
@@ -130,8 +163,8 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 							{minutes > -1 && <span>{minutes} minutos • </span>}
 							Clasificación de edad: {content.clasificacion_edad} • Año: {content.production_year}
 						</p>
-						<AddToListButton contentId={content.id} userId={userId} />
-						<LikeButton contentId={content.id} userId={userId} />
+						<AddToListButton contentId={content.id} userId={userId}/>
+						<LikeButton contentId={content.id} userId={userId}/>
 					</div>
 				</div>
 				<div className="suggested-videos">
@@ -139,7 +172,7 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 					<a href="http://localhost:3000/streamhub/search">Volver a la búsqueda</a>
 				</div>
 			</div>
-			<Footer />
+			<Footer/>
 		</div>
 	);
 };

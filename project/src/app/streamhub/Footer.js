@@ -11,7 +11,7 @@ const Footer = () => {
     return (
         <footer>
             <div id="footerHeader">
-                <a href="/"><img src={Logo.src} className="SHlogo" alt="Logo de StreamHub" /></a>
+                <img src={Logo.src} className="SHlogo" alt="Logo de StreamHub" />
                 <div className="TextLogo">StreamHub</div>
                 © 2024, StreamHub
                 <div id="footerBody">

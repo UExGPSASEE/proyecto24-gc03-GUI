@@ -135,11 +135,11 @@ export default function DeleteAdmin(props: { params: Promise<{ id: string }> }) 
     return (
         <div className="content-page">
             <nav id="header">
-                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+                                                                      alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
-                    <li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-                    <li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+                    <li><a href="http://localhost:3000/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
                 </ul>
                 <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
                 <div className="iniciarSesion">

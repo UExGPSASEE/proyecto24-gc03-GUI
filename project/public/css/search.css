@@ -129,7 +129,7 @@ body {
     padding: 10px 20px;          /* Espaciado interno como en un botón */
     background: linear-gradient(135deg, #4a90e2, #9013fe);   /* Fondo azul */
     color: white;                /* Texto blanco */
-    border-radius: 5px;          /* Bordes redondeados */
+    border-radius: 10px;          /* Bordes redondeados */
     text-decoration: none;       /* Elimina el subrayado predeterminado */
     font-weight: bold;           /* Resalta el texto */
     text-align: center;          /* Asegura que el texto esté centrado */
@@ -158,7 +158,7 @@ body {
     font-weight: bold;
     padding: 5px 10px;
     border: 1px solid #4CAF50;
-    border-radius: 4px;
+    border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -174,7 +174,7 @@ body {
     font-weight: bold;
     padding: 5px 10px;
     border: 1px solid #f44336;
-    border-radius: 4px;
+    border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -189,7 +189,7 @@ body {
     font-weight: bold;
     padding: 5px 10px;
     border: 1px solid #007BFF;
-    border-radius: 4px;
+    border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
     margin-bottom: 10px;
 }

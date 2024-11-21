@@ -7,6 +7,8 @@ import '../../../../../../public/css/Header.css';
 import Logo from "../../../../../../public/images/LogoStreamHub.png";
 import Footer from '../../../Footer.js';
 import Bandera from "../../../../../../public/images/bandera_españa.png";
+import {jwtDecode} from "jwt-decode";
+import {JwtPayload} from "@/app/streamhub/login/page";
 
 export default function CreateUser() {
     const [tipoUsuario, setTipoUsuario] = useState("ADMINISTRADOR"); // ADMINISTRADOR o GESTOR
@@ -17,15 +19,37 @@ export default function CreateUser() {
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
     const router = useRouter();
-
+    const [token, setToken] = useState<string | null>(null);
+    const [isTokenError, setIsTokenError] = useState(false);
+    let userId = -1;
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const token = localStorage.getItem("authToken");
+        const storedToken = localStorage.getItem("authToken");
+        setToken(storedToken);
 
-        if (!token) {
-            setMessage({ type: "error", text: "No se encontró el token de autenticación" });
-            return;
+        if (storedToken) {
+            try {
+                const decodedToken = jwtDecode<JwtPayload>(storedToken);
+                userId = decodedToken.userId;
+            }catch (error) {
+                console.error("Error al procesar el token o al obtener los datos:", error);
+                setIsTokenError(true);
+            }
+        }else {
+            console.error("Token no encontrado en el almacenamiento local.");
+            setIsTokenError(true);
+        }
+
+        if (isTokenError) {
+            return (
+                <div className="error-page">
+                    <h1>Error: No tienes autorización para realizar esta acción</h1>
+                    <p>
+                        Por favor, <a href="http://localhost:3000/streamhub/login">inicia sesión</a> con un usuario autorizado.
+                    </p>
+                </div>
+            );
         }
 
         const userData = {
@@ -66,16 +90,29 @@ export default function CreateUser() {
     return (
         <div className="main">
             <nav id="header">
-                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa" /></a>
+                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+                                                                      alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
-                    <li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-                    <li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+                    <li><a href="http://localhost:3000/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
                 </ul>
-                <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma" />
+                <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
+                <div className="iniciarSesion">
+                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/admin/${userId}`}>
+                        <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path
+                                d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+                                style={{fill: "white"}}
+                            />
+                        </svg>
+                    </a>
+                </div>
+                <div className="miCuenta">
+                    <a href={`http://localhost:3000/streamhub/user/admin/${userId}`}>Mi Cuenta</a>
+                </div>
             </nav>
 
-            <div className="update-user-container">
+            <div className="insert-content-container">
                 <h1>Crear Usuario</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -160,7 +197,7 @@ export default function CreateUser() {
                 )}
             </div>
 
-            <Footer />
+            <Footer/>
         </div>
     );
 }

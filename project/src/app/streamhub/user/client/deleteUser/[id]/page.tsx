@@ -160,7 +160,7 @@ async function requestDelete(apiUrl: string, token: string): Promise<void> {
         <div className="content-page">
             <nav id="header">
                 {/* Logo de la empresa */}
-                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
                 {/* Nombre comercial de la empresa*/}
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">

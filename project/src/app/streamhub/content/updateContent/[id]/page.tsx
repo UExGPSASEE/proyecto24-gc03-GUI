@@ -1,12 +1,15 @@
 "use client";
 
 import React, {useEffect, useState} from 'react';
+import {useParams} from 'next/navigation';
 import '../../../../../../public/css/InsertContent.css';
 import '../../../../../../public/css/error.css';
+import '../../../../../../public/css/Header.css';
 import Logo from "../../../../../../public/images/LogoStreamHub.png";
 import Footer from "../../../Footer.js";
 import {jwtDecode} from "jwt-decode";
 import {JwtPayload} from "@/app/streamhub/login/page";
+import Bandera from "../../../../../../public/images/bandera_españa.png";
 
 interface ApiResponse {
 	id: number;
@@ -22,7 +25,6 @@ interface ApiResponse {
 }
 
 function UpdateContent() {
-	const [id, setId] = useState<number | undefined>(undefined);
 	const [tipo, setTipo] = useState('');
 	const [titulo, setTitulo] = useState('');
 	const [productionYear, setProductionYear] = useState<number | undefined>(undefined);
@@ -33,12 +35,13 @@ function UpdateContent() {
 	const [duracion, setDuracion] = useState<number | undefined>(undefined);
 	const [url, setUrl] = useState('');
 	const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-
+	const { id } = useParams();
+	let userId: number = -1;
 	const currentYear = new Date().getFullYear();
 
 	useEffect(() => {
-		if (id) {
-			fetchContent(id); // Llama a fetchContent cuando haya un ID válido
+		if (id && !isNaN(Number(id))) {
+			fetchContent(Number(id)); // Llama a fetchContent cuando haya un ID válido
 		}
 	}, [id]);
 
@@ -48,6 +51,7 @@ function UpdateContent() {
 		try {
 			const decodedToken = jwtDecode<JwtPayload>(token);
 			console.log("Usuario: ", decodedToken.userId);
+			userId = decodedToken.userId;
 			if (decodedToken.role !== 'ROLE_GESTOR') {
 				console.error("Error en el rol del usuario");
 				isTokenError = true;
@@ -161,12 +165,36 @@ function UpdateContent() {
 
 	return (
 		<div className="main">
-			<div className="insert-content-container">
-				<h1>StreamHub</h1>
-				<div id="logo">
-					<img src={Logo.src} alt="Logo"/>
+			<nav id="header">
+				{/* Logo de la empresa */}
+				<a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+																	  alt="Logo de la empresa"/></a>
+				{/* Nombre comercial de la empresa*/}
+				<div className="TextLogo">StreamHub</div>
+				<ul className="NavLinks">
+					<li><a href="http://localhost:3000/streamhub/search">Gestionar contenido</a></li>
+				</ul>
+				{/* Menú de idioma*/}
+				<img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
+				{/* Iniciar sesión */}
+				<div className="iniciarSesion">
+					<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/manager/${userId}`}>
+						<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
+							 viewBox="0 0 448 512">
+							<path
+								d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
+								style={{fill: "white"}}
+							/>
+						</svg>
+					</a>
 				</div>
-				<p>Actualizar contenido existente</p>
+				<div className="miCuenta">
+					<a href={`http://localhost:3000/streamhub/user/manager/${userId}`}>Mi Cuenta</a>
+				</div>
+			</nav>
+
+			<div className="insert-content-container">
+				<h1>Editar Contenido</h1>
 				<form onSubmit={handleSubmit}>
 					<div className="form-group">
 						<label htmlFor="id">ID del Contenido</label>
@@ -174,8 +202,8 @@ function UpdateContent() {
 							type="number"
 							id="id"
 							value={id || ''}
-							onChange={(e) => setId(e.target.value ? Number(e.target.value) : undefined)}
 							required
+							disabled
 						/>
 					</div>
 
