@@ -54,7 +54,7 @@ function SignInPage() {
 
         //Envio de datos al servidor
         try {
-            const response = await fetch(`http://localhost:8082/StreamHub/clientes`, {
+            const response = await fetch(`http://localhost:8082/StreamHub/cliente`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

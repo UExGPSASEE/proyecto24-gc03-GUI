@@ -138,6 +138,7 @@ function UpdateContent() {
 		};
 
 		try {
+			if (contentData.duracion != null) contentData.duracion *= 60;
 			const response = await fetch(`http://localhost:8081/StreamHub/contenidos/${id}`, {
 				method: 'PUT',
 				headers: {
@@ -162,6 +163,7 @@ function UpdateContent() {
 	};
 
 	const isSeriesOrSeason = tipo === 'Serie' || tipo === 'Temporada';
+	const isSeasonOrEpisode = tipo === 'Temporada' || tipo === 'Episodio';
 
 	return (
 		<div className="main">
@@ -265,7 +267,7 @@ function UpdateContent() {
 						/>
 					</div>
 
-					{isSeriesOrSeason && (
+					{isSeasonOrEpisode && (
 						<div className="form-group">
 							<label htmlFor="perteneceA">Pertenece a</label>
 							<input
