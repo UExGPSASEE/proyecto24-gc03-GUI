@@ -17,10 +17,19 @@ const LikeButton: React.FC<LikeButtonProps> = ({contentId, userId}) => {
         const fetchLikeStatus = async () => {
             try {
                 const response = await fetch(`http://localhost:8080/StreamHub/likes/cliente/${userId}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    // Check if the contentId is in the list of liked content IDs
-                    setLiked(data.includes(contentId));
+                const numberofLikesResponse = await fetch(`http://localhost:8080/StreamHub/likes/contenido/${contentId}`);
+                if (numberofLikesResponse.ok) {
+                    if (response.ok) {
+                        const data = await response.json();
+                        // Check if the contentId is in the list of liked content IDs
+                        setLiked(data.includes(contentId));
+                    } else if (response.status === 404) {
+                        setLiked(false);
+                    } else {
+                        console.error("Failed to fetch like status");
+                    }
+                    const numberofLikes = await numberofLikesResponse.json();
+                    setNumLikes(numberofLikes);
                 } else {
                     console.error("Failed to fetch like status");
                 }
