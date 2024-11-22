@@ -94,7 +94,7 @@ const AdminProfilePage: React.FC = () => {
     return (
         <div className="content-page">
             <nav id="header">
-                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+                <a href="http://localhost:3000/streamhub/user/admin/manageUsers"><img src={Logo.src} className="TBWlogo"
                                                                       alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub - Administrador</div>
                 <ul className="NavLinks">

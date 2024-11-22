@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import '../../../../../../public/css/UpdateUser.css'; // Importa el archivo CSS
 import '../../../../../../public/css/Header.css';
+import '../../../../../../public/css/error.css';
 import Logo from "../../../../../../public/images/LogoStreamHub.png";
 import Footer from '../../../Footer.js';
 import Bandera from "../../../../../../public/images/bandera_españa.png";
@@ -21,36 +22,43 @@ export default function CreateUser() {
     const router = useRouter();
     const [token, setToken] = useState<string | null>(null);
     const [isTokenError, setIsTokenError] = useState(false);
-    let userId = -1;
+    const [userId, setUserId] = useState(-1);
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    useEffect(() => {
+        const fetchData = async () => {
+            if (storedToken) {
+                try {
+                    const decodedToken = jwtDecode<JwtPayload>(storedToken);
+                    setUserId(decodedToken.userId);
+                }catch (error) {
+                    console.error("Error al procesar el token o al obtener los datos:", error);
+                    setIsTokenError(true);
+                }
+            }else {
+                console.error("Token no encontrado en el almacenamiento local.");
+                setIsTokenError(true);
+            }
+
+        }
         const storedToken = localStorage.getItem("authToken");
         setToken(storedToken);
 
-        if (storedToken) {
-            try {
-                const decodedToken = jwtDecode<JwtPayload>(storedToken);
-                userId = decodedToken.userId;
-            }catch (error) {
-                console.error("Error al procesar el token o al obtener los datos:", error);
-                setIsTokenError(true);
-            }
-        }else {
-            console.error("Token no encontrado en el almacenamiento local.");
-            setIsTokenError(true);
-        }
+        fetchData();
+    }, []);
 
-        if (isTokenError) {
-            return (
-                <div className="error-page">
-                    <h1>Error: No tienes autorización para realizar esta acción</h1>
-                    <p>
-                        Por favor, <a href="http://localhost:3000/streamhub/login">inicia sesión</a> con un usuario autorizado.
-                    </p>
-                </div>
-            );
-        }
+    if (isTokenError) {
+        return (
+            <div className="error-page">
+                <h1>Error: No tienes autorización para realizar esta acción</h1>
+                <p>
+                    Por favor, <a href="http://localhost:3000/streamhub/login">inicia sesión</a> con un usuario autorizado.
+                </p>
+            </div>
+        );
+    }
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
 
         const userData = {
             tipo: tipoUsuario,
@@ -90,7 +98,7 @@ export default function CreateUser() {
     return (
         <div className="main">
             <nav id="header">
-                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+                <a href="http://localhost:3000/streamhub/user/admin/manageUsers"><img src={Logo.src} className="TBWlogo"
                                                                       alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">

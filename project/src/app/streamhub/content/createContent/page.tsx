@@ -3,7 +3,7 @@
 import React, {useState} from 'react';
 import '../../../../../public/css/InsertContent.css'; // Importa el archivo CSS
 import '../../../../../public/css/error.css';
-import '../../../../../../public/css/Header.css';
+import '../../../../../public/css/Header.css';
 import Logo from "../../../../../public/images/LogoStreamHub.png";
 import Footer from "../../Footer.js"
 import {jwtDecode} from "jwt-decode";
