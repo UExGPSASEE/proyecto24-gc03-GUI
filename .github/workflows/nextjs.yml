@@ -1,0 +1,32 @@
+name: nodejs-nextjs
+
+permissions: write-all
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Cambia a la versión que necesites
+
+      - name: Install project dependencies
+        run: |
+          cd project
+          npm install
+          cd ..
+          npm install react-router-dom
+          npm install @types/react-router-dom
+          npm install axios
+          npm install jwt-decode
