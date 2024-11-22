@@ -115,7 +115,7 @@ body {
     background-color: #007bff;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s ease;
 }
 
@@ -134,7 +134,7 @@ body {
     font-weight: bold;
     padding: 12px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -158,3 +158,39 @@ body {
 footer{
     width: 100%;
 }
+
+/* Estilo general de la pantalla de carga */
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    color: #555;
+}
+
+/* Estilo del texto */
+.loading-screen p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Estilo del spinner */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid #ddd;
+    border-top-color: #4a90e2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Animación de giro del spinner */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+

@@ -7,6 +7,8 @@ import Logo from "../../../../../../../public/images/LogoStreamHub.png";
 import { useRouter } from 'next/navigation'
 import Footer from '../../../../Footer.js';
 import Bandera from "../../../../../../../public/images/bandera_españa.png";
+import {jwtDecode} from "jwt-decode";
+import {JwtPayload} from "@/app/streamhub/login/page";
 
 interface ApiResponse {
     id: number;
@@ -19,12 +21,19 @@ interface ApiResponse {
     ccv: string;
 }
 
-// Function to fetch content by ID
-async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {
+// Function to fetch content by ID using JWT
+async function fetchContent(apiUrl: string, token: string): Promise<ApiResponse | null> {
     try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
         if (!response.ok) {
-            console.error("Network response was not ok", response.statusText);
+            console.error("Network response was not ok", response.statusText, response.status);
             return null;
         }
         return await response.json();
@@ -34,10 +43,11 @@ async function fetchContent(apiUrl: string): Promise<ApiResponse | null> {
     }
 }
 
+
 export default function UpdateContent(props: { params: Promise<{ id: string }> }) {
     // Definir los estados para cada campo del formulario
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
-    const [id, setId] = React.useState('');
+    const [idForm, setIdForm] = React.useState('');
     const [nombre, setNombre] = React.useState('');
     const [apellidos, setApellidos] = React.useState('');
     const [fecha_de_nacimiento, setFechaDeNacimiento] = React.useState('');
@@ -47,21 +57,20 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
     const [ccv, setCcv] = React.useState('');
     const router = useRouter();
     const paramsHtml = React.use(props.params);
+    const [isTokenError, setIsTokenError] = useState(false);
+    const [loading, setLoading] = useState(true);
     const paramsId = paramsHtml.id;
 
-    useEffect(() => {
-        getUserContent();
-    },[]);
-
-    const getUserContent = async () => {
+    const getUserContent = async (token: string) => {
         const params = await props.params;
-        console.warn("Params: "+params.id);
-        const content = await fetchContent(`http://localhost:8082/StreamHub/clientes/${params.id}`);
+        console.warn("Params: " + params.id);
+
+        const content = await fetchContent(`http://localhost:8082/StreamHub/cliente/${params.id}`, token);
         if (!content) {
             return <div>No content data available</div>; // Display if data is unavailable
         }
 
-        setId(content.id.toString());
+        setIdForm(content.id.toString());
         setNombre(content.nombre);
         setApellidos(content.apellidos);
         setFechaDeNacimiento(content.fecha_de_nacimiento);
@@ -69,16 +78,71 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         setPassword(content.password);
         setNumeroTarjetaDeCredito(content.numero_tarjeta_de_credito);
         setCcv(content.ccv);
-    }
+    };
 
     // Variable para obtener el año actual y limitar el rango de años de nacimiento
     const currentYear = new Date().getFullYear();
 
     const handleClick = () => {
         if(message?.type === 'success'){
-            router.push(`http://localhost:3000/streamhub/user/client/${id}`)
+            router.push(`http://localhost:3000/streamhub/user/client/${paramsId}`)
         }
     }
+
+    useEffect(() => {
+        //Verificar la validez del JWT y si es válido obtener los datos del usuario
+        const fetchData = async () => {
+            //Recuperamos el token del localStorage
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                try {
+
+                    const decodedToken = jwtDecode<JwtPayload>(token);
+                    console.log("Usuario: ", decodedToken.userId);
+                    console.log("Rol: ", decodedToken.role);
+
+                    if (decodedToken.role !== 'ROLE_CLIENTE' || decodedToken.userId !== parseInt(paramsId, 10)) {
+                        console.error("Error en el rol del usuario o acceso no autorizado");
+                        setIsTokenError(true);
+                        return;
+                    }
+                    //Si el token es válido, hacemos una request a la API para obtener los datos del usuario
+                    getUserContent(token);
+                } catch (error) {
+                    console.error("Error decoding token:", error);
+                    setIsTokenError(true);
+                }
+            } else {
+                console.error("Error al obtener el token.");
+                setIsTokenError(true);
+            }
+            setLoading(false);
+        };
+
+        fetchData();
+    }, [idForm]);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (isTokenError) {
+        return (
+            <div className="error-page">
+                <h1>Error: Ha sucedido un error, no tienes autenticación para esta dirección </h1>
+                <div>
+                    <span>Por favor, accede a </span>
+                    <a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+                    <span> para iniciar sesión.</span>
+                </div>
+            </div>
+        );
+    }
+
+    if (!email || !password || !numero_tarjeta_de_credito || !ccv || !fecha_de_nacimiento) {
+        return <div>No content data available</div>;
+    }
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -95,7 +159,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
 
         //Creacion de objeto con los datos del formulario
         const contentData = {
-            id: parseInt(id),
+            id: parseInt(idForm),
             nombre,
             apellidos,
             fecha_de_nacimiento,
@@ -107,9 +171,11 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
 
         //Envio de datos al servidor
         try {
-            const response = await fetch(`http://localhost:8082/StreamHub/clientes/${contentData.id}`, {
+            const token = localStorage.getItem('authToken');
+            const response = await fetch(`http://localhost:8082/StreamHub/cliente/${contentData.id}`, {
                 method: 'PUT',
                 headers: {
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(contentData),
@@ -134,7 +200,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         <div className="main">
             <nav id="header">
                 {/* Logo de la empresa */}
-                <a href="/"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
                 {/* Nombre comercial de la empresa*/}
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
@@ -160,13 +226,9 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
                 </div>
             </nav>
             <div className="insert-content-container">
-                <h1>StreamHub</h1>
-                <div id="logo">
-                    <img src={Logo.src} alt="Logo"/>
-                </div>
-                <p>Inserta un nuevo contenido</p>
+                <h1>Editar Perfil</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type="hidden" id="id" name="id" value={id}/>
+                    <input type="hidden" id="id" name="id" value={paramsId}/>
 
                     <div className="form-group">
                         <label htmlFor="nombre">Nombre</label>
@@ -190,12 +252,6 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
                         <label htmlFor="email">Email</label>
                         <input type="email" id="email" name="email" value={email} required
                                onChange={(e) => setEmail(e.target.value)}/>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" name="password" value={password} required
-                               onChange={(e) => setPassword(e.target.value)}/>
                     </div>
 
                     <div className="form-group">
