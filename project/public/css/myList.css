@@ -1,0 +1,107 @@
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
+}
+
+.main{
+    width: 100%;
+    display: flex; /* Cambia a flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.user-list-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 70px;
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e; /* Dark mode background */
+    color: #f8f8f8; /* Light text color */
+    border-radius: 20px; /* Rounded corners for container */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.user-list-page h1{
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.list-container {
+    margin-top: 20px;
+}
+
+.mylist-item {
+    background-color: #2c2c2c; /* Darker background for items */
+    padding: 15px;
+    border-radius: 20px; /* Rounded corners for items */
+    margin-bottom: 15px; /* Space between items */
+}
+
+.mylist-item h2{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.item-description {
+    color: #ccc; /* Lighter color for descriptions */
+    margin: 10px 0;
+}
+
+.item-actions {
+    display: flex;
+    gap: 10px; /* Space between action buttons */
+}
+
+.view-button, .remove-button {
+    padding: 8px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.view-button {
+    color: #4d94ff; /* Azul para "Ver" */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #4d94ff;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.view-button:hover {
+    background-color: #3385ff; /* Azul más oscuro al pasar el ratón */
+    color: white;
+}
+
+.remove-button {
+    color: #ff4d4d; /* Rojo para "Eliminar" */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #ff4d4d;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.remove-button:hover {
+    background-color: #ff3333; /* Rojo más oscuro al pasar el ratón */
+    color: white;
+}
+
+footer{
+    width: 100%;
+}

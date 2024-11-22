@@ -1,0 +1,127 @@
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
+}
+
+.main{
+    width: 100%;
+    display: flex; /* Cambia a flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.content-page {
+    width: 70%;
+    margin-bottom: 70px;
+}
+
+.content-page h1 {
+    text-align: center;
+    font-size: xxx-large;
+    color: #ffffff;
+    background-color: #222222;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 40px;
+}
+
+.content-page h2 {
+    text-align: left;
+    font-size: x-large;
+    color: #ffffff;
+    margin: 40px;
+}
+
+.content-page p {
+    text-align: justify;
+    font-size: medium;
+    color: #ffffff;
+    margin: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.content-page ul {
+    margin-left: 70px;
+    margin-right: 40px;
+    list-style-type: circle;
+    text-align: justify;
+}
+
+.leyes li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.correo:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.form-container {
+    width: 50%;
+    margin: 40px;
+    padding: 20px;
+    background-color: #222222;
+    border-radius: 20px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #cccccc;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #0078d7;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #0078d7;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #005bb5;
+}
+
+footer {
+    width: 100%;
+}

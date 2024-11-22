@@ -1,0 +1,183 @@
+* {
+    font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom right, #121212, #1e1e1e);
+    color: #e0e0e0;
+}
+
+/*++++++++++++++++++++++++++++++++++++*/
+/*Formulario de edición de alojamiento*/
+/*++++++++++++++++++++++++++++++++++++*/
+
+/*Aspecto de la cabecera del formulario*/
+.borrarDatos {
+    padding: 20px;
+    text-align: center;
+    font-size: xx-large;
+    color: #ffffff;
+    background-color: #222222;
+    border-radius: 20px;
+}
+
+/*Bloque general del formulario*/
+.borrar {
+    max-width: 800px;
+    margin: 20px auto;
+    margin-bottom: 50px;
+    padding: 20px;
+    color: #ffffff;
+    background-color: #222222;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px #0a0a0a;
+}
+
+/*Aspecto de la imagen del elemento*/
+.fotoElemento {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10%;
+}
+
+.fotoPerfil{
+    width: 255px;
+    height: 255px;
+    border-radius: 25px;
+}
+
+/*Atributos del elemento a eliminar*/
+.datosElemento {
+    text-align: center;
+}
+
+.datosABorrar, .datosElemento {
+    margin: 40px;
+    height: fit-content;
+    font-size: xx-large;
+    color: #ffffff;
+    list-style-type: none;
+}
+
+/*Alineamiento del botón de "Eliminar" y "Cancelar"*/
+.boton_borrar {
+    padding-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Aspecto del botón de "Eliminar" y "Cancelar"*/
+#boton_borrar {
+    width: 60%;
+    height: 60px;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+    color: #ffffff;
+    background: #e53935;
+    border-radius: 50px;
+}
+
+#boton_borrar:hover {
+    color: #121212;
+    background: #ffffff;
+    transition: 0.5s;
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*Cambio de la disposición de elementos en la pantalla*/
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+@media screen and (max-width: 800px) {
+    /*Barra de navegación responsive*/
+    .NavLinks li a {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    /*Elementos de las secciones responsive*/
+    #socialLinks {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    #header {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        justify-items: center;
+    }
+    .Flag {
+        margin-right: 0;
+    }
+    .Profile {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    /* Para hacer un formualrio responsive */
+    .gridDatos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+footer{
+    width: 100%;
+}
+
+/* Estilos para el estado de eliminación */
+.delete-status {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Estilo para mensaje de éxito */
+.delete-status.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Estilo para mensaje de error */
+.delete-status.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Estilo para la notificación push-up */
+.notification {
+    position: fixed;
+    top: 20px; /* Espacio desde la parte superior de la pantalla */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    background-color: #4CAF50; /* Verde por defecto (éxito) */
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Estilo para la notificación de error */
+.notification.error {
+    background-color: #f44336; /* Rojo para error */
+    border: 1px solid #e53935;
+}

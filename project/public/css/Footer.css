@@ -1,0 +1,77 @@
+/*+++++++++++++*/
+/*Pie de página*/
+/*+++++++++++++*/
+/*Aspecto del logo de la empresa*/
+.SHlogo{
+    width: 120px;
+    border-radius: 10%;
+    border: 1px solid #ffffff;
+}
+
+/*Aspecto del nombre comercial de la empresa*/
+.TextLogo{
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+#footerHeader {
+    width: 100%;
+    padding: 20px;
+    padding-top: 70px;
+    text-align: center;
+    color: #ffffff;
+    background: #121212;
+    display: flex; /* Cambia a flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+}
+
+#footerBody {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 500px auto auto;
+}
+
+/*Listas dentro del footer*/
+.FooterList {
+    list-style-type: none; /* Elimina los puntos de la izquierda de los elementos de las listas */
+}
+
+/*Lista de Información general*/
+#exploreLinks li:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/*Cabeceras de los apartados*/
+#footerBody div h1 {
+    font-size: 2rem; /* Tamaño de fuente para los encabezados */
+    font-weight: bolder;
+}
+
+#footerBody div p {
+    margin: 0.5rem 0; /* Espaciado entre párrafos */
+}
+
+/*Lista de Redes Sociales*/
+#socialLinks, #referenceLinks{
+    display: flex; /* Cambia a flexbox para alinear los elementos en línea */
+    justify-content: center; /* Centra los logos horizontalmente */
+    margin: 30px 30px; /* Espaciado entre íconos */
+}
+
+/*Logos de las redes sociales*/
+.RRSSLogo{
+    width: 60px;
+    margin-left: 30px;
+    /*Permite activar el cursor al pasar sobre el elemento*/
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/*Logos de Netflix y PrimeVideo*/
+.logosReferentes {
+    width: 150px; /* Ajusta el tamaño de los logos de referencia */
+    height: auto; /* Mantiene la proporción */
+}
