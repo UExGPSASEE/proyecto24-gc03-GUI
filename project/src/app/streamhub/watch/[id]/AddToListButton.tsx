@@ -14,7 +14,7 @@ const AddToListButton: React.FC<AddToListButtonProps> = ({ contentId, userId }) 
 		try {
 			let response = null;
 
-			response = await fetch(`http://localhost:8080/StreamHub/miLista/${userId}`, {
+			response = await fetch(`http://funcionalidades_extra:8080/StreamHub/miLista/${userId}`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',

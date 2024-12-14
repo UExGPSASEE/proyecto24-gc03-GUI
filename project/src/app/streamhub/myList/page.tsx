@@ -54,7 +54,7 @@ const UserListPage = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const apiUrlForIds = `http://localhost:8080/StreamHub/miLista/${userId}`;
+				const apiUrlForIds = `http://funcionalidades_extra:8080/StreamHub/miLista/${userId}`;
 				const listResponse = await fetch(apiUrlForIds).then((res) => res.json());
 
 				if (!listResponse || !listResponse.contenidos) {
@@ -65,7 +65,7 @@ const UserListPage = () => {
 				// Obtener los detalles de los contenidos a partir de los IDs
 				const contentDetailsArray: ApiResponse[] = [];
 				for (const id of listResponse.contenidos) {
-					const apiUrlForContent = `http://localhost:8081/StreamHub/contenidos/${id}`;
+					const apiUrlForContent = `http://contenidos:8080/StreamHub/contenidos/${id}`;
 					const content = await fetch(apiUrlForContent).then((res) => res.json());
 					if (content) {
 						contentDetailsArray.push(content);
@@ -102,7 +102,7 @@ const UserListPage = () => {
 				<h1>Error: Debes ser un cliente para acceder a esta página</h1>
 				<div>
 					<span>Por favor, accede a </span>
-					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+					<a href={"http://gui:8080/streamhub/login"}>esta página</a>
 					<span> para iniciar sesión.</span>
 				</div>
 			</div>
@@ -119,18 +119,18 @@ const UserList = ({ contentDetails, userId }: { contentDetails: ApiResponse[], u
 		<div className="main">
 			<nav id="header">
 				{/* Logo de la empresa */}
-				<a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+				<a href="http://gui:8080/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
 				{/* Nombre comercial de la empresa*/}
 				<div className="TextLogo">StreamHub</div>
 				<ul className="NavLinks">
-					<li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-					<li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+					<li><a href="http://gui:8080/streamhub/search">Buscar</a></li>
+					<li><a href="http://gui:8080/streamhub/myList">Mi Lista</a></li>
 				</ul>
 				{/* Menú de idioma*/}
 				<img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
 				{/* Iniciar sesión */}
 				<div className="iniciarSesion">
-					<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/client/${userId}`}>
+					<a className="iniciarSesion" href={`http://gui:8080/streamhub/user/client/${userId}`}>
 						<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
 							 viewBox="0 0 448 512">
 							<path
@@ -141,7 +141,7 @@ const UserList = ({ contentDetails, userId }: { contentDetails: ApiResponse[], u
 					</a>
 				</div>
 				<div className="miCuenta">
-					<a href={`http://localhost:3000/streamhub/user/client/${userId}`}>Mi Cuenta</a>
+					<a href={`http://gui:8080/streamhub/user/client/${userId}`}>Mi Cuenta</a>
 				</div>
 			</nav>
 			<div className="user-list-page">
@@ -152,7 +152,7 @@ const UserList = ({ contentDetails, userId }: { contentDetails: ApiResponse[], u
 							<h2>{content.titulo}</h2>
 							<p className="item-description">{content.descripcion}</p>
 							<div className="item-actions">
-								<a href={"http://localhost:3000/streamhub/watch/" + content.id}
+								<a href={"http://gui:8080/streamhub/watch/" + content.id}
 								   className="view-button">Ver</a>
 								<DeleteFromListButton contentId={content.id} userId={userId}/>
 							</div>

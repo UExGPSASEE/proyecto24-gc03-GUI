@@ -16,8 +16,8 @@ const LikeButton: React.FC<LikeButtonProps> = ({contentId, userId}) => {
         // Fetch the list of liked content IDs from the API
         const fetchLikeStatus = async () => {
             try {
-                const response = await fetch(`http://localhost:8080/StreamHub/likes/cliente/${userId}`);
-                const numberofLikesResponse = await fetch(`http://localhost:8080/StreamHub/likes/contenido/${contentId}`);
+                const response = await fetch(`http://funcionalidades_extra:8080/StreamHub/likes/cliente/${userId}`);
+                const numberofLikesResponse = await fetch(`http://funcionalidades_extra:8080/StreamHub/likes/contenido/${contentId}`);
                 if (numberofLikesResponse.ok) {
                     if (response.ok) {
                         const data = await response.json();
@@ -48,10 +48,10 @@ const LikeButton: React.FC<LikeButtonProps> = ({contentId, userId}) => {
             //Verificar si pulsar el boton debe conllevar poner un like o quitarlo
             let response = null;
             if (liked) { //Si ya le dio like, se elimina
-                response = await fetch(`http://localhost:8080/StreamHub/likes/${contentId}/${userId}`,
+                response = await fetch(`http://funcionalidades_extra:8080/StreamHub/likes/${contentId}/${userId}`,
                     {method: 'DELETE'});
             } else { //Si no le ha dado like, se agrega
-                response = await fetch(`http://localhost:8080/StreamHub/likes`,
+                response = await fetch(`http://funcionalidades_extra:8080/StreamHub/likes`,
                     {
                         method: 'POST',
                         headers: {

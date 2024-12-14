@@ -29,7 +29,7 @@ export default function SearchPage() {
 	const [searchText, setSearchText] = useState<string>('');
 	const [results, setResults] = useState<Content[]>([]);
 	const [selectedTags, setSelectedTags] = useState<string[]>([]);
-	let searchUrl: string = "http://localhost:8081/StreamHub/contenidos";
+	let searchUrl: string = "http://contenidos:8080/StreamHub/contenidos";
 	let isTokenError = false;
 	let isGestor = false;
 	const token = localStorage.getItem('authToken');
@@ -60,7 +60,7 @@ export default function SearchPage() {
 				<h1>Error: Debes ser un cliente o un gestor para acceder a esta página</h1>
 				<div>
 					<span>Por favor, accede a </span>
-					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+					<a href={"http://gui:8080/streamhub/login"}>esta página</a>
 					<span> para iniciar sesión.</span>
 				</div>
 			</div>
@@ -83,10 +83,10 @@ export default function SearchPage() {
 		if (selectedEtiquetas.length > 0) {
 			const etiquetasIds = selectedEtiquetas.map((etiqueta) => etiqueta.id_etiqueta);
 			const etiquetasQuery = etiquetasIds.map((id) => `etiquetas=${id}`).join('&');
-			searchUrl = `http://localhost:8081/StreamHub/contenidos/etiquetas?${etiquetasQuery}`;
+			searchUrl = `http://contenidos:8080/StreamHub/contenidos/etiquetas?${etiquetasQuery}`;
 		} else {
 			// Si no hay etiquetas seleccionadas, mantenemos la URL original
-			searchUrl = "http://localhost:8081/StreamHub/contenidos";
+			searchUrl = "http://contenidos:8080/StreamHub/contenidos";
 		}
 	};
 
@@ -115,19 +115,19 @@ export default function SearchPage() {
 		<div className="main">
 			<nav id="header">
 				{/* Logo de la empresa */}
-				<a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+				<a href="http://gui:8080/streamhub/search"><img src={Logo.src} className="TBWlogo"
 																	  alt="Logo de la empresa"/></a>
 				{/* Nombre comercial de la empresa*/}
 				<div className="TextLogo">StreamHub</div>
 				{!isGestor && (
 					<ul className="NavLinks">
-						<li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-						<li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+						<li><a href="http://gui:8080/streamhub/search">Buscar</a></li>
+						<li><a href="http://gui:8080/streamhub/myList">Mi Lista</a></li>
 					</ul>
 				)}
 				{isGestor && (
 					<ul className="NavLinks">
-						<li><a href="http://localhost:3000/streamhub/search">Gestionar contenido</a></li>
+						<li><a href="http://gui:8080/streamhub/search">Gestionar contenido</a></li>
 					</ul>
 				)}
 				{/* Menú de idioma*/}
@@ -135,7 +135,7 @@ export default function SearchPage() {
 				{/* Iniciar sesión */}
 				{!isGestor && (
 					<div className="iniciarSesion">
-						<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/client/${userId}`}>
+						<a className="iniciarSesion" href={`http://gui:8080/streamhub/user/client/${userId}`}>
 							<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
 								 viewBox="0 0 448 512">
 								<path
@@ -147,11 +147,11 @@ export default function SearchPage() {
 					</div>)}
 				{!isGestor && (
 					<div className="miCuenta">
-						<a href={`http://localhost:3000/streamhub/user/client/${userId}`}>Mi Cuenta</a>
+						<a href={`http://gui:8080/streamhub/user/client/${userId}`}>Mi Cuenta</a>
 					</div>)}
 				{isGestor && (
 					<div className="iniciarSesion">
-						<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/manager/${userId}`}>
+						<a className="iniciarSesion" href={`http://gui:8080/streamhub/user/manager/${userId}`}>
 							<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
 								 viewBox="0 0 448 512">
 								<path
@@ -163,7 +163,7 @@ export default function SearchPage() {
 					</div>)}
 				{isGestor && (
 					<div className="miCuenta">
-						<a href={`http://localhost:3000/streamhub/user/manager/${userId}`}>Mi Cuenta</a>
+						<a href={`http://gui:8080/streamhub/user/manager/${userId}`}>Mi Cuenta</a>
 					</div>)}
 			</nav>
 
@@ -184,7 +184,7 @@ export default function SearchPage() {
 
 				{isGestor && (
 					<div className="gestor-actions">
-						<a href={`http://localhost:3000/streamhub/content/createContent/`} className="create-content">Añade
+						<a href={`http://gui:8080/streamhub/content/createContent/`} className="create-content">Añade
 							un contenido</a>
 					</div>
 				)}
@@ -204,8 +204,8 @@ export default function SearchPage() {
 							{results.map((content) => {
 								// Determinar URL de enlace según el tipo de contenido
 								const linkUrl = content.tipo === "Serie" || content.tipo === "Temporada"
-									? `http://localhost:3000/streamhub/preview/${content.id}`
-									: `http://localhost:3000/streamhub/watch/${content.id}`;
+									? `http://gui:8080/streamhub/preview/${content.id}`
+									: `http://gui:8080/streamhub/watch/${content.id}`;
 
 								return (
 									<li key={content.id} className="result-item">
@@ -222,9 +222,9 @@ export default function SearchPage() {
 										</span>
 										{isGestor && (
 											<div className="gestor-actions">
-												<a href={`http://localhost:3000/streamhub/content/updateContent/${content.id}`}
+												<a href={`http://gui:8080/streamhub/content/updateContent/${content.id}`}
 												   className="edit-link">Editar</a>
-												<a href={`http://localhost:3000/streamhub/content/deleteContent/${content.id}`}
+												<a href={`http://gui:8080/streamhub/content/deleteContent/${content.id}`}
 												   className="delete-link">Borrar</a>
 											</div>
 										)}

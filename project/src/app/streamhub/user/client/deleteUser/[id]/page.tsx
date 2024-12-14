@@ -61,7 +61,7 @@ export default function ContentPage(props: { params: Promise<{ id: string }> }) 
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
     const [token, setToken] = useState<string | null>(null);
-    const apiUrl = `http://localhost:8082/StreamHub/cliente/${paramsId}`;
+    const apiUrl = `http://usuarios:8080/StreamHub/cliente/${paramsId}`;
 
 // Function to fetch content by ID
 async function requestDelete(apiUrl: string, token: string): Promise<void> {
@@ -131,7 +131,7 @@ async function requestDelete(apiUrl: string, token: string): Promise<void> {
                 <h1>Error: Ha sucedido un error, no tienes autenticación para esta dirección </h1>
                 <div>
                     <span>Por favor, accede a </span>
-                    <a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+                    <a href={"http://gui:8080/streamhub/login"}>esta página</a>
                     <span> para iniciar sesión.</span>
                 </div>
             </div>
@@ -160,18 +160,18 @@ async function requestDelete(apiUrl: string, token: string): Promise<void> {
         <div className="content-page">
             <nav id="header">
                 {/* Logo de la empresa */}
-                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://gui:8080/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
                 {/* Nombre comercial de la empresa*/}
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
-                    <li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-                    <li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+                    <li><a href="http://gui:8080/streamhub/search">Buscar</a></li>
+                    <li><a href="http://gui:8080/streamhub/myList">Mi Lista</a></li>
                 </ul>
                 {/* Menú de idioma*/}
                 <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
                 {/* Iniciar sesión */}
                 <div className="iniciarSesion">
-                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/client/${paramsId}`}>
+                    <a className="iniciarSesion" href={`http://gui:8080/streamhub/user/client/${paramsId}`}>
                         <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 448 512">
                             <path
@@ -182,7 +182,7 @@ async function requestDelete(apiUrl: string, token: string): Promise<void> {
                     </a>
                 </div>
                 <div className="miCuenta">
-                    <a href={`http://localhost:3000/streamhub/user/client/${paramsId}`}>Mi Cuenta</a>
+                    <a href={`http://gui:8080/streamhub/user/client/${paramsId}`}>Mi Cuenta</a>
                 </div>
             </nav>
             {/* Contenido del perfil principal */}

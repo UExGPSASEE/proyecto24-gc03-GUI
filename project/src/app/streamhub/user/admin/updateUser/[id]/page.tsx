@@ -35,7 +35,7 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
         const fetchData = async () => {
             const params = await props.params;
             const adminId = params.id;
-            const apiUrl = `http://localhost:8082/StreamHub/administrador/${adminId}`;
+            const apiUrl = `http://usuarios:8080/StreamHub/administrador/${adminId}`;
             const token = localStorage.getItem('authToken');
 
             if (token) {
@@ -103,7 +103,7 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
         };
 
         try {
-            const response = await fetch(`http://localhost:8082/StreamHub/administrador/${adminData.id}`, {
+            const response = await fetch(`http://usuarios:8080/StreamHub/administrador/${adminData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -114,7 +114,7 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
 
             if (response.ok) {
                 setMessage({ type: 'success', text: 'Administrador actualizado exitosamente' });
-                router.push(`http://localhost:3000/streamhub/user/admin/${id}`);
+                router.push(`http://gui:8080/streamhub/user/admin/${id}`);
             } else {
                 const errorMessage = await response.text();
                 setMessage({
@@ -140,15 +140,15 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
     return (
         <div className="main">
             <nav id="header">
-                <a href="http://localhost:3000/streamhub/user/admin/manageUsers"><img src={Logo.src} className="TBWlogo"
+                <a href="http://gui:8080/streamhub/user/admin/manageUsers"><img src={Logo.src} className="TBWlogo"
                                                                       alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
-                    <li><a href="http://localhost:3000/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
+                    <li><a href="http://gui:8080/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
                 </ul>
                 <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
                 <div className="iniciarSesion">
-                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/admin/${id}`}>
+                    <a className="iniciarSesion" href={`http://gui:8080/streamhub/user/admin/${id}`}>
                         <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path
                                 d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
@@ -158,7 +158,7 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
                     </a>
                 </div>
                 <div className="miCuenta">
-                    <a href={`http://localhost:3000/streamhub/user/admin/${id}`}>Mi Cuenta</a>
+                    <a href={`http://gui:8080/streamhub/user/admin/${id}`}>Mi Cuenta</a>
                 </div>
             </nav>
 

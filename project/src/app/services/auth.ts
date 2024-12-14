@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8082';
+const API_URL = 'http://usuarios:8080';
 
 /**
  * Interfaz para la respuesta del backend al autenticar.

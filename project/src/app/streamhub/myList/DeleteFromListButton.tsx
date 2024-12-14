@@ -41,7 +41,7 @@ const DeleteFromListButton: React.FC<DeleteFromListButtonProps> = ({ contentId, 
 		try {
 			let response = null;
 
-			response = await fetch(`http://localhost:8080/StreamHub/miLista/${userId}/${contentId}`, {
+			response = await fetch(`http://funcionalidades_extra:8080/StreamHub/miLista/${userId}/${contentId}`, {
 				method: 'DELETE',
 				headers: {
 					'Content-Type': 'application/json',

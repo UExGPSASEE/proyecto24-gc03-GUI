@@ -21,7 +21,7 @@ const TagList: React.FC<TagListProps> = ({ onEtiquetasLoaded, selectedTags, onTa
 	useEffect(() => {
 		const fetchEtiquetas = async () => {
 			try {
-				const response = await fetch('http://localhost:8080/StreamHub/etiquetas');
+				const response = await fetch('http://funcionalidades_extra:8080/StreamHub/etiquetas');
 				if (response.ok) {
 					const data = await response.json();
 					setEtiquetas(data);

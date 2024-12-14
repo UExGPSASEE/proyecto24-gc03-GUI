@@ -52,7 +52,7 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
         const fetchData = async () => {
             const params = await props.params;
             const managerId = params.id;
-            const apiUrl = `http://localhost:8082/StreamHub/gestor/${managerId}`;
+            const apiUrl = `http://usuarios:8080/StreamHub/gestor/${managerId}`;
             const storedToken = localStorage.getItem('authToken');
             setToken(storedToken);
 
@@ -111,7 +111,7 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
         }
 
         try {
-            const apiUrl = `http://localhost:8082/StreamHub/gestor/${manager.id}`;
+            const apiUrl = `http://usuarios:8080/StreamHub/gestor/${manager.id}`;
             await requestDelete(apiUrl, token);
             setMessage({ type: 'success', text: 'manager eliminado correctamente' });
         } catch (error) {
@@ -128,7 +128,7 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
             <div className="error-page">
                 <h1>Error: No tienes autorización para realizar esta acción</h1>
                 <p>
-                    Por favor, <a href="http://localhost:3000/streamhub/login">inicia sesión</a> con un usuario autorizado.
+                    Por favor, <a href="http://gui:8080/streamhub/login">inicia sesión</a> con un usuario autorizado.
                 </p>
             </div>
         );
@@ -141,22 +141,22 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
     return (
         <div className="content-page">
             <nav id="header">
-                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://gui:8080/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
                 <div className="TextLogo">StreamHub</div>
                 {isGestor && (
                     <ul className="NavLinks">
-                        <li><a href="http://localhost:3000/streamhub/search">Gestion del contenido</a></li>
+                        <li><a href="http://gui:8080/streamhub/search">Gestion del contenido</a></li>
                     </ul>
                 )}
                 {!isGestor && (
                     <ul className="NavLinks">
-                        <li><a href="http://localhost:3000/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
+                        <li><a href="http://gui:8080/streamhub/user/admin/manageUsers">Gestión de Usuarios</a></li>
                     </ul>
                 )}
                 <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
                 {isGestor && (
                     <div className="iniciarSesion">
-                        <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/manager/${manager.id}`}>
+                        <a className="iniciarSesion" href={`http://gui:8080/streamhub/user/manager/${manager.id}`}>
                             <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path
                                     d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
@@ -168,7 +168,7 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
                 )}
                 {!isGestor && (
                     <div className="iniciarSesion">
-                        <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/admin/${userIdToken}`}>
+                        <a className="iniciarSesion" href={`http://gui:8080/streamhub/user/admin/${userIdToken}`}>
                             <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path
                                     d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
@@ -180,12 +180,12 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
                 )}
                 {isGestor && (
                     <div className="miCuenta">
-                        <a href={`http://localhost:3000/streamhub/user/manager/${manager.id}`}>Mi Cuenta</a>
+                        <a href={`http://gui:8080/streamhub/user/manager/${manager.id}`}>Mi Cuenta</a>
                     </div>
                 )}
                 {!isGestor && (
                     <div className="miCuenta">
-                        <a href={`http://localhost:3000/streamhub/user/admin/${userIdToken}`}>Mi Cuenta</a>
+                        <a href={`http://gui:8080/streamhub/user/admin/${userIdToken}`}>Mi Cuenta</a>
                     </div>
                 )}
             </nav>

@@ -18,10 +18,10 @@ const Footer = () => {
                     <div>
                         <h1>Información general</h1>
                         <ul id="exploreLinks" className="FooterList">
-                            <li><a href="http://localhost:3000/streamhub/policies/aboutUs">Sobre nosotros</a></li>
-                            <li><a href="http://localhost:3000/streamhub/policies/help">Ayuda</a></li>
-                            <li><a href="http://localhost:3000/streamhub/policies/privacyPolicy">Política de privacidad</a></li>
-                            <li><a href="http://localhost:3000/streamhub/policies/termsOfService">Términos y condiciones</a></li>
+                            <li><a href="http://gui:8080/streamhub/policies/aboutUs">Sobre nosotros</a></li>
+                            <li><a href="http://gui:8080/streamhub/policies/help">Ayuda</a></li>
+                            <li><a href="http://gui:8080/streamhub/policies/privacyPolicy">Política de privacidad</a></li>
+                            <li><a href="http://gui:8080/streamhub/policies/termsOfService">Términos y condiciones</a></li>
                         </ul>
                     </div>
                     <div>

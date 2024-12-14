@@ -65,7 +65,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         const params = await props.params;
         console.warn("Params: " + params.id);
 
-        const content = await fetchContent(`http://localhost:8082/StreamHub/cliente/${params.id}`, token);
+        const content = await fetchContent(`http://usuarios:8080/StreamHub/cliente/${params.id}`, token);
         if (!content) {
             return <div>No content data available</div>; // Display if data is unavailable
         }
@@ -85,7 +85,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
 
     const handleClick = () => {
         if(message?.type === 'success'){
-            router.push(`http://localhost:3000/streamhub/user/client/${paramsId}`)
+            router.push(`http://gui:8080/streamhub/user/client/${paramsId}`)
         }
     }
 
@@ -132,7 +132,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
                 <h1>Error: Ha sucedido un error, no tienes autenticación para esta dirección </h1>
                 <div>
                     <span>Por favor, accede a </span>
-                    <a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+                    <a href={"http://gui:8080/streamhub/login"}>esta página</a>
                     <span> para iniciar sesión.</span>
                 </div>
             </div>
@@ -172,7 +172,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         //Envio de datos al servidor
         try {
             const token = localStorage.getItem('authToken');
-            const response = await fetch(`http://localhost:8082/StreamHub/cliente/${contentData.id}`, {
+            const response = await fetch(`http://usuarios:8080/StreamHub/cliente/${contentData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -200,18 +200,18 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         <div className="main">
             <nav id="header">
                 {/* Logo de la empresa */}
-                <a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+                <a href="http://gui:8080/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
                 {/* Nombre comercial de la empresa*/}
                 <div className="TextLogo">StreamHub</div>
                 <ul className="NavLinks">
-                    <li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-                    <li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+                    <li><a href="http://gui:8080/streamhub/search">Buscar</a></li>
+                    <li><a href="http://gui:8080/streamhub/myList">Mi Lista</a></li>
                 </ul>
                 {/* Menú de idioma*/}
                 <img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
                 {/* Iniciar sesión */}
                 <div className="iniciarSesion">
-                    <a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/client/${paramsId}`}>
+                    <a className="iniciarSesion" href={`http://gui:8080/streamhub/user/client/${paramsId}`}>
                         <svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 448 512">
                             <path
@@ -222,7 +222,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
                     </a>
                 </div>
                 <div className="miCuenta">
-                    <a href={`http://localhost:3000/streamhub/user/client/${paramsId}`}>Mi Cuenta</a>
+                    <a href={`http://gui:8080/streamhub/user/client/${paramsId}`}>Mi Cuenta</a>
                 </div>
             </nav>
             <div className="insert-content-container">

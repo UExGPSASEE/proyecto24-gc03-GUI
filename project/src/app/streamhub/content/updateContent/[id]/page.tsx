@@ -71,7 +71,7 @@ function UpdateContent() {
 				<h1>Error: Debes ser un gestor para acceder a esta página</h1>
 				<div>
 					<span>Por favor, accede a </span>
-					<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+					<a href={"http://gui:8080/streamhub/login"}>esta página</a>
 					<span> para iniciar sesión.</span>
 				</div>
 			</div>
@@ -79,7 +79,7 @@ function UpdateContent() {
 	}
 
 	async function fetchContent(contentId: number) {
-		const apiUrl = `http://localhost:8081/StreamHub/contenidos/${contentId}`;
+		const apiUrl = `http://contenidos:8080/StreamHub/contenidos/${contentId}`;
 		try {
 			const response = await fetch(apiUrl);
 			if (!response.ok) {
@@ -139,7 +139,7 @@ function UpdateContent() {
 
 		try {
 			if (contentData.duracion != null) contentData.duracion *= 60;
-			const response = await fetch(`http://localhost:8081/StreamHub/contenidos/${id}`, {
+			const response = await fetch(`http://contenidos:8080/StreamHub/contenidos/${id}`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json'
@@ -169,18 +169,18 @@ function UpdateContent() {
 		<div className="main">
 			<nav id="header">
 				{/* Logo de la empresa */}
-				<a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo"
+				<a href="http://gui:8080/streamhub/search"><img src={Logo.src} className="TBWlogo"
 																	  alt="Logo de la empresa"/></a>
 				{/* Nombre comercial de la empresa*/}
 				<div className="TextLogo">StreamHub</div>
 				<ul className="NavLinks">
-					<li><a href="http://localhost:3000/streamhub/search">Gestionar contenido</a></li>
+					<li><a href="http://gui:8080/streamhub/search">Gestionar contenido</a></li>
 				</ul>
 				{/* Menú de idioma*/}
 				<img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
 				{/* Iniciar sesión */}
 				<div className="iniciarSesion">
-					<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/manager/${userId}`}>
+					<a className="iniciarSesion" href={`http://gui:8080/streamhub/user/manager/${userId}`}>
 						<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
 							 viewBox="0 0 448 512">
 							<path
@@ -191,7 +191,7 @@ function UpdateContent() {
 					</a>
 				</div>
 				<div className="miCuenta">
-					<a href={`http://localhost:3000/streamhub/user/manager/${userId}`}>Mi Cuenta</a>
+					<a href={`http://gui:8080/streamhub/user/manager/${userId}`}>Mi Cuenta</a>
 				</div>
 			</nav>
 

@@ -38,7 +38,7 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 
 	// Obtener el contenido y el token al cargar el componente
 	useEffect(() => {
-		const apiUrl = `http://localhost:8081/StreamHub/contenidos/${id}`;
+		const apiUrl = `http://contenidos:8080/StreamHub/contenidos/${id}`;
 
 		// Función para obtener contenido de la API
 		async function fetchContent() {
@@ -89,7 +89,7 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 			<h1>Error: no se pudo obtener el usuario</h1>
 			<div>
 				<span>Por favor, accede a </span>
-				<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+				<a href={"http://gui:8080/streamhub/login"}>esta página</a>
 				<span> para iniciar sesión.</span>
 			</div>
 		</div>;
@@ -100,7 +100,7 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 			<h1>Error: debes ser un cliente para acceder a esta página</h1>
 			<div>
 				<span>Por favor, accede a </span>
-				<a href={"http://localhost:3000/streamhub/login"}>esta página</a>
+				<a href={"http://gui:8080/streamhub/login"}>esta página</a>
 				<span> para iniciar sesión.</span>
 			</div>
 		</div>;
@@ -112,7 +112,7 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 				<h1>Error: Tipo de contenido no válido</h1>
 				<div>
 					<span>No se puede visualizar un contenido de tipo "{content.tipo}". Por favor, accede a </span>
-					<a href={`http://localhost:3000/streamhub/preview/${content.id}`}>esta página</a>
+					<a href={`http://gui:8080/streamhub/preview/${content.id}`}>esta página</a>
 					<span> para ver los detalles del contenido.</span>
 				</div>
 			</div>
@@ -125,18 +125,18 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 		<div>
 			<nav id="header">
 				{/* Logo de la empresa */}
-				<a href="http://localhost:3000/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
+				<a href="http://gui:8080/streamhub/search"><img src={Logo.src} className="TBWlogo" alt="Logo de la empresa"/></a>
 				{/* Nombre comercial de la empresa*/}
 				<div className="TextLogo">StreamHub</div>
 				<ul className="NavLinks">
-					<li><a href="http://localhost:3000/streamhub/search">Buscar</a></li>
-					<li><a href="http://localhost:3000/streamhub/myList">Mi Lista</a></li>
+					<li><a href="http://gui:8080/streamhub/search">Buscar</a></li>
+					<li><a href="http://gui:8080/streamhub/myList">Mi Lista</a></li>
 				</ul>
 				{/* Menú de idioma*/}
 				<img src={Bandera.src} className="Flag" alt="Menú desplegable de idioma"/>
 				{/* Iniciar sesión */}
 				<div className="iniciarSesion">
-					<a className="iniciarSesion" href={`http://localhost:3000/streamhub/user/client/${userId}`}>
+					<a className="iniciarSesion" href={`http://gui:8080/streamhub/user/client/${userId}`}>
 						<svg height="70" width="70" xmlns="http://www.w3.org/2000/svg"
 							 viewBox="0 0 448 512">
 							<path
@@ -147,7 +147,7 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 					</a>
 				</div>
 				<div className="miCuenta">
-					<a href={`http://localhost:3000/streamhub/user/client/${userId}`}>Mi Cuenta</a>
+					<a href={`http://gui:8080/streamhub/user/client/${userId}`}>Mi Cuenta</a>
 				</div>
 			</nav>
 
@@ -169,7 +169,7 @@ const VideoPage: React.FC<VideoPageProps> = () => {
 				</div>
 				<div className="suggested-videos">
 					<h2>¿Te interesa ver otro contenido?</h2>
-					<a href="http://localhost:3000/streamhub/search">Volver a la búsqueda</a>
+					<a href="http://gui:8080/streamhub/search">Volver a la búsqueda</a>
 				</div>
 			</div>
 			<Footer/>

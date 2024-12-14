@@ -21,7 +21,7 @@ interface ChildListProps {
 
 const ChildList: React.FC<ChildListProps> = ({content}) => {
     const [children, setChildren] = useState<ApiResponse[] | null>(null);
-    let urlToContent = 'http://localhost:3000/streamhub/';
+    let urlToContent = 'http://gui:8080/streamhub/';
 
     useEffect(() => {
         const fetchContentArray = async (apiUrl: string): Promise<ApiResponse[] | null> => {
@@ -39,7 +39,7 @@ const ChildList: React.FC<ChildListProps> = ({content}) => {
         };
 
         const fetchChildren = async () => {
-            let childrenApiUrl = "http://localhost:8081/StreamHub/contenidos/tipo/";
+            let childrenApiUrl = "http://contenidos:8080/StreamHub/contenidos/tipo/";
 
             if (content.tipo === "Serie") {
                 childrenApiUrl += "Temporada";

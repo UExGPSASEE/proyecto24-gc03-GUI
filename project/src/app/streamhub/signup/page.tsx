@@ -23,7 +23,7 @@ function SignInPage() {
 
     const handleClick = () => {
         if(message?.type === 'success'){
-            router.push(`http://localhost:3000/streamhub`)
+            router.push(`http://gui:8080/streamhub`)
         }
     }
 
@@ -54,7 +54,7 @@ function SignInPage() {
 
         //Envio de datos al servidor
         try {
-            const response = await fetch(`http://localhost:8082/StreamHub/cliente`, {
+            const response = await fetch(`http://usuarios:8080/StreamHub/cliente`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
