@@ -65,7 +65,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         const params = await props.params;
         console.warn("Params: " + params.id);
 
-        const content = await fetchContent(`http://usuarios:8080/StreamHub/cliente/${params.id}`, token);
+        const content = await fetchContent(`${Config.USUARIOS_URL}/StreamHub/cliente/${params.id}`, token);
         if (!content) {
             return <div>No content data available</div>; // Display if data is unavailable
         }
@@ -172,7 +172,7 @@ export default function UpdateContent(props: { params: Promise<{ id: string }> }
         //Envio de datos al servidor
         try {
             const token = localStorage.getItem('authToken');
-            const response = await fetch(`http://usuarios:8080/StreamHub/cliente/${contentData.id}`, {
+            const response = await fetch(`${Config.USUARIOS_URL}/StreamHub/cliente/${contentData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,

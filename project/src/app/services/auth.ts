@@ -1,6 +1,7 @@
 import axios from 'axios';
+import {Config} from '@config/config';
 
-const API_URL = 'http://usuarios:8080';
+const API_URL = Config.USUARIOS_URL;
 
 /**
  * Interfaz para la respuesta del backend al autenticar.

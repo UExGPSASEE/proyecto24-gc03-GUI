@@ -37,7 +37,7 @@ export default function UpdateGestor(props: { params: Promise<{ id: string }> })
         const fetchData = async () => {
             const params = await props.params;
             const gestorId = params.id;
-            const apiUrl = `http://usuarios:8080/StreamHub/gestor/${gestorId}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/gestor/${gestorId}`;
             const token = localStorage.getItem('authToken');
 
             if (token) {
@@ -108,7 +108,7 @@ export default function UpdateGestor(props: { params: Promise<{ id: string }> })
         };
 
         try {
-            const response = await fetch(`http://usuarios:8080/StreamHub/gestor/${gestorData.id}`, {
+            const response = await fetch(`${Config.USUARIOS_URL}/StreamHub/gestor/${gestorData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,

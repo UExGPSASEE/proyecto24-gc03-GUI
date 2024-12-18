@@ -4,20 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3830c49d-8fdc-4298-bd97-deccb1df1bff" name="Changes" comment="Bug-Fix: Cambio en la pestaña del navegador">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    <list default="true" id="152032b0-b2b5-43b6-bc69-079e0d7ae14f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/project/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/project/src/config/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/services/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/services/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/content/createContent/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/content/createContent/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/signup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/signup/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/createUser/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/createUser/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/deleteUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/deleteUser/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/manageUsers/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/manageUsers/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/updateUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/updateUser/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/client/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/client/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/client/deleteUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/client/deleteUser/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/client/updateUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/client/updateUser/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/deleteUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/deleteUser/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/updateUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/updateUser/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/project/tsconfig.json" afterDir="false" />
+    </list>
+    <list id="2ea70317-590a-44ec-bbd5-95a3980b1342" name="Changes by Javier Torres" comment="">
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/content/deleteContent/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/content/deleteContent/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/content/updateContent/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/content/updateContent/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/myList/DeleteFromListButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/myList/DeleteFromListButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/myList/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/myList/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/preview/[id]/ChildList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/preview/[id]/ChildList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/preview/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/preview/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/search/TagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/search/TagList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/search/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/search/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/signup/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/signup/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/admin/[id]/page.tsx" afterDir="false" />
@@ -31,6 +47,18 @@
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/deleteUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/deleteUser/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/updateUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/manager/updateUser/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/page.tsx" afterDir="false" />
+    </list>
+    <list id="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" name="Changes by rvazm" comment="">
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/content/deleteContent/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/content/deleteContent/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/content/updateContent/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/content/updateContent/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/myList/DeleteFromListButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/myList/DeleteFromListButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/myList/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/myList/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/preview/[id]/ChildList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/preview/[id]/ChildList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/search/TagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/search/TagList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/search/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/search/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/client/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/client/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/user/client/updateUser/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/user/client/updateUser/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/AddToListButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/AddToListButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/LikeButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/LikeButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/page.tsx" afterDir="false" />
@@ -40,64 +68,384 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/develop" />
+    <option name="OPTIONS">
+      <set>
+        <option value="NO_FF" />
+      </set>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="SCRUM-17-HU-4.-Registro-y-Autenticacion-de-Usuarios" />
+        <entry key="$PROJECT_DIR$" value="SCRUM-60-SUBT-16.-Visualizacion-de-contenido" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;d2nt4&quot;
+    &quot;assignee&quot;: &quot;RubenUex&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/UExGPSASEE/proyecto24-gc03-GUI.git&quot;,
-    &quot;accountId&quot;: &quot;0d682b90-9c35-43b9-b500-039324c22601&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/UExGPSASEE/proyecto24-gc03-GUI.git",
+    "accountId": "af0a4ecf-1e4d-4e6d-8416-774b5cd9e2c6"
   }
-}</component>
+}]]></component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/client/deleteUser/[id]/page.tsx">
+      <ranges>
+        <range start1="14" end1="14" start2="14" end2="15" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="63" end1="64" start2="64" end2="65" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="133" end1="134" start2="134" end2="135" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="162" end1="163" start2="163" end2="164" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="166" end1="168" start2="167" end2="169" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="173" end1="174" start2="174" end2="175" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="184" end1="185" start2="185" end2="186" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/admin/updateUser/[id]/page.tsx">
+      <ranges>
+        <range start1="11" end1="11" start2="11" end2="12" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="37" end1="38" start2="38" end2="39" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="105" end1="106" start2="106" end2="107" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="116" end1="117" start2="117" end2="118" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="142" end1="143" start2="143" end2="144" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="146" end1="147" start2="147" end2="148" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="150" end1="151" start2="151" end2="152" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="160" end1="161" start2="161" end2="162" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/manager/deleteUser/[id]/page.tsx">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="13" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="54" end1="55" start2="55" end2="56" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="113" end1="114" start2="114" end2="115" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="130" end1="131" start2="131" end2="132" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="143" end1="144" start2="144" end2="145" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="147" end1="148" start2="148" end2="149" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="152" end1="153" start2="153" end2="154" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="158" end1="159" start2="159" end2="160" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="170" end1="171" start2="171" end2="172" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="182" end1="183" start2="183" end2="184" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="187" end1="188" start2="188" end2="189" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/manager/[id]/page.tsx">
+      <ranges>
+        <range start1="13" end1="13" start2="13" end2="14" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="31" end1="32" start2="32" end2="33" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="83" end1="84" start2="84" end2="85" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="96" end1="97" start2="97" end2="98" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="100" end1="101" start2="101" end2="102" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="106" end1="107" start2="107" end2="108" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="120" end1="121" start2="121" end2="122" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="134" end1="135" start2="135" end2="136" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="142" end1="143" start2="143" end2="144" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/content/updateContent/[id]/page.tsx">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="13" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="73" end1="74" start2="74" end2="75" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="81" end1="82" start2="82" end2="83" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="141" end1="142" start2="142" end2="143" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="171" end1="172" start2="172" end2="173" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="176" end1="177" start2="177" end2="178" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="182" end1="183" start2="183" end2="184" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="193" end1="194" start2="194" end2="195" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/search/page.tsx">
+      <ranges>
+        <range start1="11" end1="12" start2="11" end2="13" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="31" end1="32" start2="32" end2="33" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="62" end1="63" start2="63" end2="64" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="85" end1="86" start2="86" end2="87" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="88" end1="89" start2="89" end2="90" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="117" end1="119" start2="118" end2="121" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="123" end1="125" start2="125" end2="127" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="129" end1="130" start2="131" end2="132" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="137" end1="138" start2="139" end2="140" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="149" end1="150" start2="151" end2="152" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="153" end1="154" start2="155" end2="156" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="165" end1="166" start2="167" end2="168" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="186" end1="187" start2="188" end2="189" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="206" end1="208" start2="208" end2="210" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="224" end1="225" start2="226" end2="227" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="226" end1="227" start2="228" end2="229" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/myList/page.tsx">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="13" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="56" end1="57" start2="57" end2="58" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="67" end1="68" start2="68" end2="69" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="104" end1="105" start2="105" end2="106" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="121" end1="122" start2="122" end2="123" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="125" end1="127" start2="126" end2="128" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="132" end1="133" start2="133" end2="134" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="143" end1="144" start2="144" end2="145" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="154" end1="155" start2="155" end2="156" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/content/deleteContent/[id]/page.tsx">
+      <ranges>
+        <range start1="13" end1="13" start2="13" end2="14" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="29" end1="30" start2="30" end2="31" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="62" end1="63" start2="63" end2="64" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="116" end1="117" start2="117" end2="118" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="121" end1="122" start2="122" end2="123" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="127" end1="128" start2="128" end2="129" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="138" end1="139" start2="139" end2="140" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/signup/page.tsx">
+      <ranges>
+        <range start1="7" end1="7" start2="7" end2="8" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="25" end1="26" start2="26" end2="27" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="56" end1="57" start2="57" end2="58" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/watch/[id]/page.tsx">
+      <ranges>
+        <range start1="14" end1="14" start2="14" end2="15" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="40" end1="41" start2="41" end2="42" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="91" end1="92" start2="92" end2="93" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="102" end1="103" start2="103" end2="104" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="114" end1="115" start2="115" end2="116" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="127" end1="128" start2="128" end2="129" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="131" end1="133" start2="132" end2="134" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="138" end1="139" start2="139" end2="140" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="149" end1="150" start2="150" end2="151" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="171" end1="172" start2="172" end2="173" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/admin/[id]/page.tsx">
+      <ranges>
+        <range start1="13" end1="13" start2="13" end2="14" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="31" end1="32" start2="32" end2="33" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="83" end1="84" start2="84" end2="85" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="96" end1="97" start2="97" end2="98" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="100" end1="101" start2="101" end2="102" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="106" end1="107" start2="107" end2="108" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="120" end1="121" start2="121" end2="122" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="134" end1="135" start2="135" end2="136" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="142" end1="143" start2="143" end2="144" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/client/updateUser/[id]/page.tsx">
+      <ranges>
+        <range start1="11" end1="11" start2="11" end2="12" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="67" end1="68" start2="68" end2="69" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="87" end1="88" start2="88" end2="89" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="134" end1="135" start2="135" end2="136" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="174" end1="175" start2="175" end2="176" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="202" end1="203" start2="203" end2="204" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="206" end1="208" start2="207" end2="209" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="213" end1="214" start2="214" end2="215" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="224" end1="225" start2="225" end2="226" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/admin/manageUsers/page.tsx">
+      <ranges>
+        <range start1="11" end1="11" start2="11" end2="12" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="49" end1="50" start2="50" end2="51" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="58" end1="59" start2="59" end2="60" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="85" end1="86" start2="86" end2="87" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="89" end1="90" start2="90" end2="91" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="93" end1="94" start2="94" end2="95" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="103" end1="104" start2="104" end2="105" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="123" end1="124" start2="124" end2="125" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="141" end1="142" start2="142" end2="143" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="143" end1="144" start2="144" end2="145" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/admin/deleteUser/[id]/page.tsx">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="13" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="52" end1="53" start2="53" end2="54" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="107" end1="108" start2="108" end2="109" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="124" end1="125" start2="125" end2="126" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="137" end1="138" start2="138" end2="139" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="141" end1="142" start2="142" end2="143" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="145" end1="146" start2="146" end2="147" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="155" end1="156" start2="156" end2="157" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/manager/updateUser/[id]/page.tsx">
+      <ranges>
+        <range start1="11" end1="11" start2="11" end2="12" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="39" end1="40" start2="40" end2="41" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="110" end1="111" start2="111" end2="112" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="145" end1="146" start2="146" end2="147" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="149" end1="150" start2="150" end2="151" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="154" end1="155" start2="155" end2="156" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="160" end1="161" start2="161" end2="162" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="172" end1="173" start2="173" end2="174" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="184" end1="185" start2="185" end2="186" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="189" end1="190" start2="190" end2="191" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/client/[id]/page.tsx">
+      <ranges>
+        <range start1="13" end1="13" start2="13" end2="14" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="62" end1="63" start2="63" end2="64" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="102" end1="103" start2="103" end2="104" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="116" end1="117" start2="117" end2="118" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="120" end1="122" start2="121" end2="123" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="127" end1="128" start2="128" end2="129" changelist="f61fbf6c-6024-4836-9b94-1a0cd7eb1b64" />
+        <range start1="141" end1="142" start2="142" end2="143" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="155" end1="156" start2="156" end2="157" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="163" end1="164" start2="164" end2="165" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/project/src/app/streamhub/user/admin/createUser/page.tsx">
+      <ranges>
+        <range start1="12" end1="12" start2="12" end2="13" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="53" end1="54" start2="54" end2="55" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="72" end1="73" start2="73" end2="74" changelist="152032b0-b2b5-43b6-bc69-079e0d7ae14f" />
+        <range start1="83" end1="84" start2="84" end2="85" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="100" end1="101" start2="101" end2="102" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="104" end1="105" start2="105" end2="106" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="108" end1="109" start2="109" end2="110" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+        <range start1="118" end1="119" start2="119" end2="120" changelist="2ea70317-590a-44ec-bbd5-95a3980b1342" />
+      </ranges>
+    </file>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2pDNhCkO7heht0Nf0ZgmSokDi4F" />
+  <component name="ProjectId" id="2oHzwn8SmPLPdGNbxvvPDMcDRFZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.localhost:3000.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "last_opened_file_path": "C:/Users/rvazm/Desktop/Universidad/ASEE/Proyecto/proyecto24-gc03-gui/project/src/app/preview/[id]",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.GUI.executor": "Run",
+    "ts.external.directory.path": "C:\\Users\\carlo\\WebstormProjects\\proyecto24-gc03-GUI\\project\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui\project\src\app\preview\[id]" />
+      <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui\project\src\app\watch" />
+      <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\carlo\WebstormProjects\proyecto24-gc03-GUI\project" />
+      <recent name="C:\Users\HP 840 G2\Desktop\Universidad\4CURSO\ASEE\Proyecto\proyecto24-gc03-GUI\project\src\app\streamhub" />
+      <recent name="C:\Users\rvazm\Desktop\Universidad\ASEE\Proyecto\proyecto24-gc03-gui\project\src\app\watch\[id]" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.GUI">
+    <configuration name="localhost:3000" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:3000">
+      <method v="2" />
+    </configuration>
+    <configuration name="GUI" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/project/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.localhost:3000" />
+      <item itemvalue="npm.GUI" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.localhost:3000" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-WS-243.22562.112" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-WS-243.21565.180" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3830c49d-8fdc-4298-bd97-deccb1df1bff" name="Changes" comment="Bug-Fix: Cambio en la pestaña del navegador" />
-      <created>1732296803648</created>
+      <changelist id="152032b0-b2b5-43b6-bc69-079e0d7ae14f" name="Changes" comment="" />
+      <created>1730541529260</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1732296803648</updated>
-      <workItem from="1732296806199" duration="538000" />
-      <workItem from="1732298553506" duration="1080000" />
-      <workItem from="1734196027704" duration="3184000" />
+      <updated>1730541529260</updated>
+      <workItem from="1730541530329" duration="631000" />
+      <workItem from="1730542242776" duration="10960000" />
+      <workItem from="1734532015713" duration="10830000" />
     </task>
+    <task id="LOCAL-00001" summary="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido.">
+      <option name="closed" value="true" />
+      <created>1730559923249</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730559923249</updated>
+    </task>
+    <task id="LOCAL-00002" summary="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido.">
+      <option name="closed" value="true" />
+      <created>1730560566552</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730560566552</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido." />
+    <option name="LAST_COMMIT_MESSAGE" value="SCRUM-60 SUBT 16. Visualizacion de contenido&#10;- Visualización de video en youtube según la id del contenido." />
   </component>
 </project>

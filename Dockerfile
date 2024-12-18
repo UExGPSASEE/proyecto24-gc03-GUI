@@ -1,13 +1,6 @@
 # Usar una imagen base de Node.js
 FROM node:18-alpine
 
-# Metadatos de la imagen
-LABEL version="1.0"
-LABEL project="GUI"
-LABEL maintainer="dtorrescb@alumnos.unex.es"
-LABEL description="Imagen de Docker para la aplicación React GUI"
-LABEL date="14/12/2024"
-
 # Establecer el directorio de trabajo
 WORKDIR /app
 
@@ -22,8 +15,11 @@ RUN cd project && npm install
 # Copiar el resto de los archivos del proyecto
 COPY . .
 
-# Exponer el puerto en el que Next.js correrá
-EXPOSE 8080
+# Establecer las variables de entorno para desarrollo
+ENV NODE_ENV=development
 
-# Comando para iniciar la aplicación
+# Exponer el puerto en el que Next.js correrá
+EXPOSE 3000
+
+# Comando para iniciar la aplicación en modo desarrollo
 CMD ["npm", "run", "dev", "--prefix", "project"]

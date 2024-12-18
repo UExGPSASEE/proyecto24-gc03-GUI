@@ -52,7 +52,7 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
         const fetchData = async () => {
             const params = await props.params;
             const managerId = params.id;
-            const apiUrl = `http://usuarios:8080/StreamHub/gestor/${managerId}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/gestor/${managerId}`;
             const storedToken = localStorage.getItem('authToken');
             setToken(storedToken);
 
@@ -111,7 +111,7 @@ export default function DeleteManager(props: { params: Promise<{ id: string }> }
         }
 
         try {
-            const apiUrl = `http://usuarios:8080/StreamHub/gestor/${manager.id}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/gestor/${manager.id}`;
             await requestDelete(apiUrl, token);
             setMessage({ type: 'success', text: 'manager eliminado correctamente' });
         } catch (error) {

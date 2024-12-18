@@ -60,7 +60,7 @@ const ContentPage: React.FC<ContentPageProps> = () => {
         //Verificar la validez del JWT y si es válido obtener los datos del usuario
         const fetchData = async () => {
             //Ruta de la api de usuarios
-            const apiUrl = `http://usuarios:8080/StreamHub/cliente/${id}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/cliente/${id}`;
             //Recuperamos el token del localStorage
             const token = localStorage.getItem('authToken');
             if (token) {
@@ -139,7 +139,7 @@ const ContentPage: React.FC<ContentPageProps> = () => {
                 <div className="miCuenta">
                     <a href="#" onClick={() => {
                         localStorage.removeItem('authToken');
-                        window.location.href = 'http://gui:8080/streamhub';
+                        window.location.href = `${Config.GUI_URL}/streamhub`;
                     }}>Cerrar Sesión</a>
                 </div>
             </nav>

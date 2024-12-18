@@ -56,7 +56,7 @@ export default function UserManagementPage() {
 
     const fetchUsers = async () => {
         try {
-            const managersResponse = await fetch("http://usuarios:8080/StreamHub/gestores", {
+            const managersResponse = await fetch(`${Config.USUARIOS_URL}/StreamHub/gestores`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,

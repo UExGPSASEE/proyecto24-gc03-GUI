@@ -50,7 +50,7 @@ export default function DeleteAdmin(props: { params: Promise<{ id: string }> }) 
         const fetchData = async () => {
             const params = await props.params;
             const adminId = params.id;
-            const apiUrl = `http://usuarios:8080/StreamHub/administrador/${adminId}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/administrador/${adminId}`;
             const storedToken = localStorage.getItem('authToken');
             setToken(storedToken);
 
@@ -105,7 +105,7 @@ export default function DeleteAdmin(props: { params: Promise<{ id: string }> }) 
         }
 
         try {
-            const apiUrl = `http://usuarios:8080/StreamHub/administrador/${admin.id}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/administrador/${admin.id}`;
             await requestDelete(apiUrl, token);
             setMessage({ type: 'success', text: 'Administrador eliminado correctamente' });
         } catch (error) {

@@ -35,7 +35,7 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
         const fetchData = async () => {
             const params = await props.params;
             const adminId = params.id;
-            const apiUrl = `http://usuarios:8080/StreamHub/administrador/${adminId}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/administrador/${adminId}`;
             const token = localStorage.getItem('authToken');
 
             if (token) {
@@ -103,7 +103,7 @@ export default function UpdateAdmin(props: { params: Promise<{ id: string }> }) 
         };
 
         try {
-            const response = await fetch(`http://usuarios:8080/StreamHub/administrador/${adminData.id}`, {
+            const response = await fetch(`${Config.USUARIOS_URL}/StreamHub/administrador/${adminData.id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${token}`,

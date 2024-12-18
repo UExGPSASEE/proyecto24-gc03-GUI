@@ -70,7 +70,7 @@ export default function CreateUser() {
         };
 
         try {
-            const response = await fetch(`http://usuarios:8080/StreamHub/${tipoUsuario.toLowerCase()}`, {
+            const response = await fetch(`${Config.USUARIOS_URL}/StreamHub/${tipoUsuario.toLowerCase()}`, {
                 method: "POST",
                 headers: {
                     "Authorization": `Bearer ${token}`,

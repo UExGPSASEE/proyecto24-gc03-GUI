@@ -29,7 +29,7 @@ const AdminProfilePage: React.FC = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const apiUrl = `http://usuarios:8080/StreamHub/administrador/${id}`;
+            const apiUrl = `${Config.USUARIOS_URL}/StreamHub/administrador/${id}`;
             const token = localStorage.getItem('authToken');
 
             if (token) {
@@ -104,7 +104,7 @@ const AdminProfilePage: React.FC = () => {
                 <div className="iniciarSesion">
                     <a className="iniciarSesion" href="#" onClick={() => {
                         localStorage.removeItem('authToken');
-                        window.location.href = 'http://gui:8080/streamhub';
+                        window.location.href = `${Config.GUI_URL}/streamhub`;
                     }}>
                         <svg height="35" width="35" xmlns="http://www.w3.org/2000/svg" style={{margin: "10px"}}
                              viewBox="0 0 512 512">
@@ -118,7 +118,7 @@ const AdminProfilePage: React.FC = () => {
                 <div className="miCuenta">
                     <a href="#" onClick={() => {
                         localStorage.removeItem('authToken');
-                        window.location.href = 'http://gui:8080/streamhub';
+                        window.location.href = `${Config.GUI_URL}/streamhub`;
                     }}>Cerrar Sesión</a>
                 </div>
             </nav>

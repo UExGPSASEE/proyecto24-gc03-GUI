@@ -61,7 +61,7 @@ export default function ContentPage(props: { params: Promise<{ id: string }> }) 
     const [loading, setLoading] = useState(true);
     const [message, setMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
     const [token, setToken] = useState<string | null>(null);
-    const apiUrl = `http://usuarios:8080/StreamHub/cliente/${paramsId}`;
+    const apiUrl = `${Config.USUARIOS_URL}/StreamHub/cliente/${paramsId}`;
 
 // Function to fetch content by ID
 async function requestDelete(apiUrl: string, token: string): Promise<void> {
